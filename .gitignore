@@ -1,0 +1,30 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv
+.envrc
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_convert/
+.artifacts/
+artifacts/
+
+# Data
+data/*.csv
+!data/README.md
+
+# ML
+runs/
+models/
+checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
