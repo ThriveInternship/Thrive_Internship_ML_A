@@ -31,4 +31,11 @@ reports/        # team findings
 - Feature branches merge into the group branch via PRs.
 - Weekly, group branches may be merged to `main` for milestone comparisons.
 
+Troubleshooting & Tips
+
+If pip install fails, try:
+
+pip cache purge
+pip install -r requirements.txt --upgrade
+
 _Last updated: 2025-10-03 15:28 UTC_
