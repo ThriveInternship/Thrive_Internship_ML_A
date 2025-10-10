@@ -14,7 +14,7 @@ __pycache__/
 artifacts/
 
 # Data
-data/*.csv
+
 !data/README.md
 
 # ML
