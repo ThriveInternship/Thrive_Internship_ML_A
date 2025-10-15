@@ -36,17 +36,12 @@ jobs:
             echo "No requirements.txt found. Skipping dependency install."
           fi
 
-      - name: Run tests (tolerate 'no tests collected')
+      - name: Run tests (only if tests exist)
         env:
           PYTHONPATH: ${{ github.workspace }}
-        shell: bash
         run: |
-          set +e
-          pytest -q
-          code=$?
-          set -e
-          if [ "$code" -eq 5 ]; then
-            echo "No tests collected (pytest exit 5). Treating as success."
-            exit 0
+          if compgen -G "tests/**/*.py" > /dev/null || compgen -G "tests/*.py" > /dev/null; then
+            pytest -q
+          else
+            echo "No tests found. Skipping pytest."
           fi
-          exit "$code"
