@@ -9,3 +9,4 @@ scikit-learn
 prometheus-client
 pytest
 python-dotenv
+httpx 
