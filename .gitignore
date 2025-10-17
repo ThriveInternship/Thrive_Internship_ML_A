@@ -14,7 +14,7 @@ __pycache__/
 artifacts/
 
 # Data
-
+data/*.csv
 !data/README.md
 
 # ML
@@ -28,3 +28,9 @@ Thumbs.db
 
 # Docker
 *.log
+
+#text editor
+personal.txt 
+
+#Setup files
+setup_env.bat
