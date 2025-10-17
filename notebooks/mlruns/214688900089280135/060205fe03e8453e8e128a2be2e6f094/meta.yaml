@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/EMMANUEL/projects/Thrive_Internship_ML_A/notebooks/mlruns/214688900089280135/060205fe03e8453e8e128a2be2e6f094/artifacts
+end_time: 1760684494312
+entry_point_name: ''
+experiment_id: '214688900089280135'
+lifecycle_stage: active
+run_id: 060205fe03e8453e8e128a2be2e6f094
+run_name: Baseline Model Experiments
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760684494159
+status: 3
+tags: []
+user_id: EMMANUEL

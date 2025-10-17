@@ -1,5 +1,5 @@
 artifact_uri: file:///c:/Users/EMMANUEL/projects/Thrive_Internship_ML_A/notebooks/mlruns/214688900089280135/f452514180024da4bfd5843c9e398cfc/artifacts
-end_time: null
+end_time: 1760684237516
 entry_point_name: ''
 experiment_id: '214688900089280135'
 lifecycle_stage: active
@@ -9,6 +9,6 @@ source_name: ''
 source_type: 4
 source_version: ''
 start_time: 1760658955358
-status: 1
+status: 3
 tags: []
 user_id: EMMANUEL
