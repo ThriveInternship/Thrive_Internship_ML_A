@@ -1,8 +1,1 @@
-pip install --upgrade pip setuptools wheel
-pip install pipreqs
-pipreqs . --force
-pip install -r requirements.txt || pip install pandas numpy matplotlib seaborn scikit-learn ipykernel
 
-pip check && pip install --upgrade --force-reinstall transformers torch mlflow fastapi uvicorn
-
-pip install -i https://pypi.org/simple --extra-index-url https://pypi.mirrors.ustc.edu.cn/simple transformers torch mlflow fastapi uvicorn
