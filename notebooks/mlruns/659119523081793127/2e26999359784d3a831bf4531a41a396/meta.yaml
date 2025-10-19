@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/EMMANUEL/projects/Thrive_Internship_ML_A/notebooks/mlruns/659119523081793127/2e26999359784d3a831bf4531a41a396/artifacts
+end_time: 1760889867708
+entry_point_name: ''
+experiment_id: '659119523081793127'
+lifecycle_stage: active
+run_id: 2e26999359784d3a831bf4531a41a396
+run_name: Majority Classifier
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760889867523
+status: 3
+tags: []
+user_id: EMMANUEL

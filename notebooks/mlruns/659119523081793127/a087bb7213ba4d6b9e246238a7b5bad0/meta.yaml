@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/EMMANUEL/projects/Thrive_Internship_ML_A/notebooks/mlruns/659119523081793127/a087bb7213ba4d6b9e246238a7b5bad0/artifacts
+end_time: 1760888315835
+entry_point_name: ''
+experiment_id: '659119523081793127'
+lifecycle_stage: active
+run_id: a087bb7213ba4d6b9e246238a7b5bad0
+run_name: TFIDF + Logistic Regression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760888315643
+status: 3
+tags: []
+user_id: EMMANUEL
