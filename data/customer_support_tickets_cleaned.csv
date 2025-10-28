@@ -1,496 +1,496 @@
-text,label,ticket_id,agent_name
-where can i find api rate limits documentation,other,1000,Dana
-can i migrate data from freshdesk,other,1001,Bob
-cannot update billing address page keeps reloading,billing,1002,Charlie
-looking for a product roadmap or upcoming features,other,1003,Dana
-dark mode toggled but ui stays light,technical,1004,Alice
-promo code spring not applied at checkout,billing,1005,Alice
-incorrect role assigned need admin access for my team,account,1006,Dana
-file export to csv generates corrupted file,technical,1007,Dana
-overcharged by ghs  on my last bill,billing,1008,Dana
-unknown,account,1009,Dana
-username amina already taken but its my old account,account,1010,Bob
-please provide onboarding training for my team,other,1011,Charlie
-integration with slack fails with timeout,technical,1012,Charlie
-need to change email from oldmailcom to mecompanycom,account,1013,Bob
-cannot update billing address page keeps reloading,billing,1014,Charlie
-need to merge two accounts into one,account,1015,Alice
-do you offer discounts for students or ngos,other,1016,Bob
-how can i request my data under gdpr,other,1018,Dana
-how do i delete my account and all data,account,1019,Alice
-do you offer discounts for students or ngos,other,1020,Charlie
-promo code save not applied at checkout,billing,1021,Charlie
-please provide onboarding training for my team,other,1022,Dana
-subscription renewal charged incorrectly this month,billing,1023,Alice
-currency converted incorrectly expected ghs,billing,1024,Charlie
-forgot my password and reset link never arrives,account,1025,Alice
-file export to csv generates corrupted file,technical,1026,Charlie
-promo code black not applied at checkout,billing,1027,Bob
-overcharged by  on my last bill,billing,1028,Dana
-payment failed during checkout with card ending,billing,1029,Dana
-unknown,billing,1030,Charlie
-how do i delete my account and all data,account,1031,Charlie
-incorrect role assigned need admin access for my team,account,1032,Alice
-app crashes when i tap submit on android,technical,1033,Charlie
-incorrect role assigned need admin access for my team,account,1034,Alice
-locked out after too many login attempts,account,1035,Bob
-locked out after too many login attempts,account,1036,Dana
-cannot enable twofactor authentication qr fails to scan,account,1037,Charlie
-how do i delete my account and all data,account,1038,Bob
-do you offer discounts for students or ngos,other,1039,Alice
-cant verify phone number code not sent,account,1040,Dana
-need to merge two accounts into one,account,1041,Bob
-notifications not arriving on ios after latest update,technical,1042,Alice
-need to merge two accounts into one,account,1043,Dana
-currency converted incorrectly expected ghs,billing,1044,Charlie
-dark mode toggled but ui stays light,technical,1045,Alice
-subscription renewal charged incorrectly this month,billing,1046,Dana
-cant verify phone number code not sent,account,1047,Dana
-subscription renewal charged incorrectly this month,billing,1048,Charlie
-when is the pro pricing changing,other,1049,Dana
-payment failed during checkout with card ending,billing,1050,Charlie
-looking for a product roadmap or upcoming features,other,1051,Charlie
-can i migrate data from freshdesk,other,1052,Bob
-is there a sandbox environment for testing,other,1053,Charlie
-subscription renewal charged incorrectly this month,billing,1054,Charlie
-dark mode toggled but ui stays light,technical,1056,Dana
-where can i find api rate limits documentation,other,1057,Bob
-promo code black not applied at checkout,billing,1058,Alice
-charged twice for the same order,billing,1059,Alice
-cannot enable twofactor authentication qr fails to scan,account,1061,Bob
-subscription renewal charged incorrectly this month,billing,1062,Dana
-dark mode toggled but ui stays light,technical,1063,Bob
-when is the basic pricing changing,other,1064,Alice
-locked out after too many login attempts,account,1065,Alice
-do you offer discounts for students or ngos,other,1066,Dana
-unknown,account,1068,Dana
-please provide onboarding training for my team,other,1070,Bob
-overcharged by  on my last bill,billing,1071,Charlie
-please provide onboarding training for my team,other,1072,Alice
-unknown,account,1073,Charlie
-cannot enable twofactor authentication qr fails to scan,account,1074,Charlie
-do you offer discounts for students or ngos,other,1075,Alice
-unknown,billing,1076,Charlie
-can i migrate data from zendesk,other,1077,Bob
-website returns  error on checkout,technical,1078,Alice
-locked out after too many login attempts,account,1079,Charlie
-refund not received after  days,billing,1080,Charlie
-promo code spring not applied at checkout,billing,1081,Charlie
-cannot update billing address page keeps reloading,billing,1083,Alice
-unknown,technical,1084,Alice
-integration with slack fails with timeout,technical,1085,Alice
-charged twice for the same order,billing,1086,Dana
-when is the pro pricing changing,other,1087,Charlie
-profile picture upload fails with unknown error,account,1088,Alice
-cant verify phone number code not sent,account,1089,Dana
-need to merge two accounts into one,account,1090,Alice
-how can i request my data under gdpr,other,1091,Charlie
-live chat widget not loading on homepage,technical,1092,Charlie
-file export to csv generates corrupted file,technical,1093,Alice
-profile picture upload fails with unknown error,account,1094,Bob
-subscription renewal charged incorrectly this month,billing,1095,Alice
-file export to csv generates corrupted file,technical,1096,Dana
-invoice is missing vat number,billing,1097,Bob
-cant verify phone number code not sent,account,1098,Charlie
-payment failed during checkout with card ending,billing,1099,Charlie
-locked out after too many login attempts,account,1100,Dana
-incorrect role assigned need admin access for my team,account,1101,Alice
-need to merge two accounts into one,account,1102,Charlie
-unknown,billing,1104,Bob
-need to merge two accounts into one,account,1105,Alice
-invoice is missing vat number,billing,1106,Dana
-need to change email from useroldco to mecompanycom,account,1107,Alice
-how can i request my data under gdpr,other,1108,Bob
-locked out after too many login attempts,account,1109,Bob
-can i migrate data from freshdesk,other,1110,Bob
-please add support for audit logs in the next release,other,1111,Charlie
-promo code black not applied at checkout,billing,1112,Bob
-is there a sandbox environment for testing,other,1113,Charlie
-charged twice for the same order,billing,1114,Charlie
-upload stuck at  for more than  minutes,technical,1115,Charlie
-forgot my password and reset link never arrives,account,1116,Bob
-app crashes when i tap save on android,technical,1117,Bob
-live chat widget not loading on homepage,technical,1118,Charlie
-website returns  error on profile,technical,1119,Charlie
-username amina already taken but its my old account,account,1120,Dana
-do you offer discounts for students or ngos,other,1121,Alice
-forgot my password and reset link never arrives,account,1122,Alice
-live chat widget not loading on homepage,technical,1123,Charlie
-unknown,account,1124,Charlie
-invoice is missing vat number,billing,1125,Charlie
-do you offer discounts for students or ngos,other,1126,Alice
-can i migrate data from excel,other,1128,Dana
-dark mode toggled but ui stays light,technical,1129,Alice
-when is the basic pricing changing,other,1130,Bob
-promo code black not applied at checkout,billing,1131,Charlie
-please provide onboarding training for my team,other,1132,Alice
-requesting invoice to be sent monthly instead of weekly,other,1133,Charlie
-need receipt for reimbursement for order,billing,1134,Alice
-need receipt for reimbursement for order,billing,1135,Charlie
-can i migrate data from zendesk,other,1136,Bob
-live chat widget not loading on homepage,technical,1137,Charlie
-file export to csv generates corrupted file,technical,1138,Alice
-website returns  error on orders,technical,1139,Charlie
-website returns  error on profile,technical,1140,Dana
-cant verify phone number code not sent,account,1141,Dana
-do you offer discounts for students or ngos,other,1143,Alice
-need to change email from useroldco to mecompanycom,account,1144,Alice
-currency converted incorrectly expected usd,billing,1145,Bob
-app crashes when i tap login on android,technical,1146,Charlie
-do you offer discounts for students or ngos,other,1147,Alice
-website returns  error on profile,technical,1148,Charlie
-when is the pro pricing changing,other,1149,Alice
-live chat widget not loading on homepage,technical,1150,Dana
-overcharged by  on my last bill,billing,1151,Alice
-search results page is blank after entering a query,technical,1152,Dana
-search results page is blank after entering a query,technical,1153,Alice
-profile picture upload fails with unknown error,account,1154,Charlie
-unknown,other,1155,Dana
-notifications not arriving on ios after latest update,technical,1156,Alice
-refund not received after  days,billing,1157,Dana
-how do i delete my account and all data,account,1158,Dana
-incorrect role assigned need admin access for my team,account,1159,Alice
-requesting invoice to be sent monthly instead of weekly,other,1160,Alice
-overcharged by ghs  on my last bill,billing,1161,Alice
-profile picture upload fails with unknown error,account,1162,Bob
-overcharged by  on my last bill,billing,1163,Alice
-file export to csv generates corrupted file,technical,1164,Charlie
-requesting invoice to be sent monthly instead of weekly,other,1165,Alice
-cant verify phone number code not sent,account,1167,Alice
-when is the enterprise pricing changing,other,1168,Dana
-requesting invoice to be sent monthly instead of weekly,other,1169,Dana
-username alex already taken but its my old account,account,1170,Bob
-integration with stripe fails with timeout,technical,1171,Charlie
-can i migrate data from excel,other,1172,Bob
-need to merge two accounts into one,account,1173,Alice
-profile picture upload fails with unknown error,account,1174,Dana
-looking for a product roadmap or upcoming features,other,1175,Bob
-charged twice for the same order,billing,1176,Bob
-payment failed during checkout with card ending,billing,1177,Dana
-please provide onboarding training for my team,other,1178,Bob
-dark mode toggled but ui stays light,technical,1179,Alice
-how do i delete my account and all data,account,1180,Bob
-when is the pro pricing changing,other,1181,Alice
-can i migrate data from excel,other,1182,Alice
-locked out after too many login attempts,account,1184,Dana
-profile picture upload fails with unknown error,account,1185,Bob
-looking for a product roadmap or upcoming features,other,1186,Dana
-currency converted incorrectly expected gbp,billing,1187,Charlie
-how do i delete my account and all data,account,1188,Bob
-live chat widget not loading on homepage,technical,1189,Dana
-overcharged by  on my last bill,billing,1190,Bob
-locked out after too many login attempts,account,1191,Dana
-how do i delete my account and all data,account,1192,Dana
-subscription renewal charged incorrectly this month,billing,1193,Dana
-unknown,technical,1194,Charlie
-charged twice for the same order,billing,1195,Bob
-refund not received after  days,billing,1196,Alice
-when is the pro pricing changing,other,1197,Charlie
-looking for a product roadmap or upcoming features,other,1198,Charlie
-when is the enterprise pricing changing,other,1199,Charlie
-locked out after too many login attempts,account,1200,Dana
-need receipt for reimbursement for order,billing,1201,Bob
-invoice is missing vat number,billing,1202,Alice
-need to merge two accounts into one,account,1203,Alice
-please provide onboarding training for my team,other,1204,Dana
-app crashes when i tap submit on android,technical,1205,Dana
-payment failed during checkout with card ending,billing,1206,Charlie
-need to change email from useroldco to usernewco,account,1207,Alice
-how do i delete my account and all data,account,1209,Charlie
-where can i find api rate limits documentation,other,1210,Bob
-looking for a product roadmap or upcoming features,other,1211,Dana
-search results page is blank after entering a query,technical,1212,Bob
-notifications not arriving on ios after latest update,technical,1213,Alice
-dark mode toggled but ui stays light,technical,1214,Bob
-cannot update billing address page keeps reloading,billing,1215,Alice
-where can i find api rate limits documentation,other,1216,Alice
-do you offer discounts for students or ngos,other,1217,Charlie
-refund not received after  days,billing,1218,Charlie
-incorrect role assigned need admin access for my team,account,1219,Alice
-where can i find api rate limits documentation,other,1220,Dana
-refund not received after  days,billing,1221,Dana
-upload stuck at  for more than  minutes,technical,1222,Bob
-need to merge two accounts into one,account,1223,Charlie
-search results page is blank after entering a query,technical,1224,Dana
-app crashes when i tap login on android,technical,1225,Dana
-please provide onboarding training for my team,other,1226,Dana
-need receipt for reimbursement for order,billing,1227,Dana
-promo code black not applied at checkout,billing,1228,Charlie
-when is the basic pricing changing,other,1229,Dana
-live chat widget not loading on homepage,technical,1230,Dana
-cannot update billing address page keeps reloading,billing,1231,Bob
-integration with zapier fails with timeout,technical,1232,Dana
-cannot update billing address page keeps reloading,billing,1233,Charlie
-is there a sandbox environment for testing,other,1234,Bob
-locked out after too many login attempts,account,1235,Bob
-please add support for offline mode in the next release,other,1236,Alice
-twofactor prompt loops after successful code entry,technical,1237,Alice
-twofactor prompt loops after successful code entry,technical,1238,Charlie
-requesting invoice to be sent monthly instead of weekly,other,1239,Dana
-need to merge two accounts into one,account,1240,Alice
-website returns  error on checkout,technical,1241,Charlie
-twofactor prompt loops after successful code entry,technical,1242,Bob
-need to merge two accounts into one,account,1243,Charlie
-promo code black not applied at checkout,billing,1244,Dana
-search results page is blank after entering a query,technical,1245,Alice
-subscription renewal charged incorrectly this month,billing,1246,Bob
-payment failed during checkout with card ending,billing,1247,Charlie
-forgot my password and reset link never arrives,account,1248,Charlie
-promo code welcome not applied at checkout,billing,1249,Dana
-integration with zapier fails with timeout,technical,1250,Alice
-how can i request my data under gdpr,other,1252,Charlie
-cannot enable twofactor authentication qr fails to scan,account,1253,Charlie
-refund not received after  days,billing,1254,Bob
-how do i delete my account and all data,account,1255,Charlie
-incorrect role assigned need admin access for my team,account,1256,Bob
-username amina already taken but its my old account,account,1257,Dana
-cannot update billing address page keeps reloading,billing,1259,Charlie
-looking for a product roadmap or upcoming features,other,1260,Alice
-dark mode toggled but ui stays light,technical,1261,Bob
-where can i find api rate limits documentation,other,1262,Bob
-cannot enable twofactor authentication qr fails to scan,account,1263,Charlie
-forgot my password and reset link never arrives,account,1264,Bob
-currency converted incorrectly expected eur,billing,1265,Charlie
-charged twice for the same order,billing,1266,Alice
-requesting invoice to be sent monthly instead of weekly,other,1267,Alice
-how can i request my data under gdpr,other,1268,Bob
-cant verify phone number code not sent,account,1269,Alice
-notifications not arriving on ios after latest update,technical,1270,Alice
-requesting invoice to be sent monthly instead of weekly,other,1271,Alice
-dark mode toggled but ui stays light,technical,1272,Charlie
-please provide onboarding training for my team,other,1273,Dana
-is there a sandbox environment for testing,other,1274,Dana
-website returns  error on checkout,technical,1275,Bob
-cant verify phone number code not sent,account,1276,Alice
-website returns  error on apivexport,technical,1277,Alice
-website returns  error on checkout,technical,1278,Bob
-username samdev already taken but its my old account,account,1279,Alice
-unknown,account,1280,Charlie
-looking for a product roadmap or upcoming features,other,1281,Dana
-please add support for offline mode in the next release,other,1282,Bob
-do you offer discounts for students or ngos,other,1283,Bob
-how do i delete my account and all data,account,1284,Bob
-please provide onboarding training for my team,other,1285,Bob
-integration with stripe fails with timeout,technical,1286,Bob
-how can i request my data under gdpr,other,1287,Alice
-cant verify phone number code not sent,account,1288,Alice
-file export to csv generates corrupted file,technical,1289,Alice
-subscription renewal charged incorrectly this month,billing,1290,Dana
-dark mode toggled but ui stays light,technical,1291,Dana
-live chat widget not loading on homepage,technical,1292,Alice
-integration with slack fails with timeout,technical,1293,Alice
-live chat widget not loading on homepage,technical,1294,Charlie
-live chat widget not loading on homepage,technical,1295,Dana
-charged twice for the same order,billing,1296,Alice
-live chat widget not loading on homepage,technical,1297,Bob
-cannot enable twofactor authentication qr fails to scan,account,1298,Charlie
-please add support for offline mode in the next release,other,1299,Alice
-where can i find api rate limits documentation,other,1300,Alice
-file export to csv generates corrupted file,technical,1301,Dana
-notifications not arriving on ios after latest update,technical,1302,Dana
-website returns  error on orders,technical,1303,Alice
-upload stuck at  for more than  minutes,technical,1304,Alice
-please provide onboarding training for my team,other,1305,Charlie
-search results page is blank after entering a query,technical,1306,Bob
-invoice is missing vat number,billing,1307,Dana
-username jordan already taken but its my old account,account,1308,Alice
-invoice is missing vat number,billing,1309,Bob
-is there a sandbox environment for testing,other,1310,Alice
-cannot update billing address page keeps reloading,billing,1311,Alice
-requesting invoice to be sent monthly instead of weekly,other,1312,Alice
-refund not received after  days,billing,1313,Alice
-promo code black not applied at checkout,billing,1314,Bob
-app crashes when i tap pay on android,technical,1315,Alice
-unknown,billing,1316,Charlie
-cant verify phone number code not sent,account,1317,Dana
-forgot my password and reset link never arrives,account,1318,Charlie
-cant verify phone number code not sent,account,1319,Charlie
-do you offer discounts for students or ngos,other,1320,Dana
-promo code spring not applied at checkout,billing,1321,Dana
-where can i find api rate limits documentation,other,1322,Alice
-live chat widget not loading on homepage,technical,1324,Bob
-subscription renewal charged incorrectly this month,billing,1325,Dana
-app crashes when i tap submit on android,technical,1326,Alice
-looking for a product roadmap or upcoming features,other,1327,Charlie
-subscription renewal charged incorrectly this month,billing,1328,Bob
-twofactor prompt loops after successful code entry,technical,1329,Bob
-integration with stripe fails with timeout,technical,1330,Alice
-please provide onboarding training for my team,other,1331,Bob
-how do i delete my account and all data,account,1332,Dana
-integration with slack fails with timeout,technical,1333,Charlie
-dark mode toggled but ui stays light,technical,1334,Alice
-file export to csv generates corrupted file,technical,1335,Bob
-notifications not arriving on ios after latest update,technical,1336,Dana
-file export to csv generates corrupted file,technical,1337,Charlie
-notifications not arriving on ios after latest update,technical,1338,Dana
-profile picture upload fails with unknown error,account,1340,Bob
-cant verify phone number code not sent,account,1341,Alice
-dark mode toggled but ui stays light,technical,1342,Charlie
-payment failed during checkout with card ending,billing,1343,Dana
-cannot enable twofactor authentication qr fails to scan,account,1344,Charlie
-need receipt for reimbursement for order,billing,1345,Dana
-integration with salesforce fails with timeout,technical,1346,Alice
-is there a sandbox environment for testing,other,1347,Alice
-file export to csv generates corrupted file,technical,1348,Charlie
-search results page is blank after entering a query,technical,1349,Bob
-profile picture upload fails with unknown error,account,1350,Bob
-refund not received after  days,billing,1351,Bob
-refund not received after  days,billing,1352,Charlie
-need to change email from useroldco to mecompanycom,account,1353,Dana
-live chat widget not loading on homepage,technical,1354,Charlie
-where can i find api rate limits documentation,other,1355,Bob
-unknown,billing,1356,Charlie
-need to change email from useroldco to usernewco,account,1357,Alice
-do you offer discounts for students or ngos,other,1358,Alice
-dark mode toggled but ui stays light,technical,1359,Bob
-when is the enterprise pricing changing,other,1360,Bob
-unknown,billing,1361,Dana
-upload stuck at  for more than  minutes,technical,1362,Charlie
-integration with zapier fails with timeout,technical,1364,Bob
-refund not received after  days,billing,1365,Alice
-requesting invoice to be sent monthly instead of weekly,other,1366,Bob
-charged twice for the same order,billing,1367,Bob
-cannot update billing address page keeps reloading,billing,1368,Charlie
-forgot my password and reset link never arrives,account,1369,Bob
-forgot my password and reset link never arrives,account,1370,Alice
-unknown,account,1371,Alice
-notifications not arriving on ios after latest update,technical,1372,Dana
-username alex already taken but its my old account,account,1373,Charlie
-unknown,technical,1374,Charlie
-website returns  error on checkout,technical,1375,Dana
-need to change email from oldmailcom to mecompanycom,account,1376,Charlie
-unknown,account,1377,Dana
-upload stuck at  for more than  minutes,technical,1378,Charlie
-please provide onboarding training for my team,other,1379,Bob
-where can i find api rate limits documentation,other,1380,Bob
-looking for a product roadmap or upcoming features,other,1381,Alice
-how can i request my data under gdpr,other,1382,Alice
-live chat widget not loading on homepage,technical,1383,Bob
-is there a sandbox environment for testing,other,1384,Dana
-integration with slack fails with timeout,technical,1385,Dana
-profile picture upload fails with unknown error,account,1386,Dana
-username alex already taken but its my old account,account,1387,Alice
-can i migrate data from zendesk,other,1389,Charlie
-do you offer discounts for students or ngos,other,1390,Alice
-forgot my password and reset link never arrives,account,1391,Alice
-can i migrate data from jira,other,1392,Bob
-website returns  error on orders,technical,1393,Charlie
-unknown,other,1394,Charlie
-subscription renewal charged incorrectly this month,billing,1395,Alice
-can i migrate data from excel,other,1396,Charlie
-profile picture upload fails with unknown error,account,1397,Charlie
-dark mode toggled but ui stays light,technical,1399,Alice
-need receipt for reimbursement for order,billing,1400,Bob
-cannot enable twofactor authentication qr fails to scan,account,1401,Dana
-please provide onboarding training for my team,other,1402,Bob
-when is the basic pricing changing,other,1404,Alice
-cannot enable twofactor authentication qr fails to scan,account,1405,Bob
-unknown,billing,1406,Charlie
-integration with slack fails with timeout,technical,1407,Bob
-unknown,other,1408,Bob
-need to change email from oldmailcom to newmailcom,account,1409,Alice
-overcharged by  on my last bill,billing,1410,Dana
-upload stuck at  for more than  minutes,technical,1411,Charlie
-dark mode toggled but ui stays light,technical,1412,Bob
-charged twice for the same order,billing,1413,Bob
-where can i find api rate limits documentation,other,1414,Dana
-live chat widget not loading on homepage,technical,1415,Dana
-locked out after too many login attempts,account,1416,Alice
-charged twice for the same order,billing,1417,Bob
-cant verify phone number code not sent,account,1418,Charlie
-cannot enable twofactor authentication qr fails to scan,account,1419,Bob
-is there a sandbox environment for testing,other,1420,Bob
-when is the pro pricing changing,other,1422,Dana
-profile picture upload fails with unknown error,account,1423,Alice
-twofactor prompt loops after successful code entry,technical,1424,Alice
-locked out after too many login attempts,account,1425,Bob
-dark mode toggled but ui stays light,technical,1426,Dana
-notifications not arriving on ios after latest update,technical,1427,Alice
-forgot my password and reset link never arrives,account,1428,Bob
-dark mode toggled but ui stays light,technical,1429,Dana
-incorrect role assigned need admin access for my team,account,1430,Charlie
-subscription renewal charged incorrectly this month,billing,1431,Bob
-payment failed during checkout with card ending,billing,1432,Dana
-how can i request my data under gdpr,other,1433,Charlie
-overcharged by ghs  on my last bill,billing,1434,Charlie
-currency converted incorrectly expected gbp,billing,1435,Bob
-need receipt for reimbursement for order,billing,1436,Bob
-cannot update billing address page keeps reloading,billing,1437,Dana
-incorrect role assigned need admin access for my team,account,1438,Bob
-website returns  error on profile,technical,1439,Bob
-how do i delete my account and all data,account,1440,Alice
-is there a sandbox environment for testing,other,1441,Alice
-incorrect role assigned need admin access for my team,account,1442,Bob
-refund not received after  days,billing,1443,Bob
-how do i delete my account and all data,account,1444,Bob
-upload stuck at  for more than  minutes,technical,1445,Charlie
-can i migrate data from zendesk,other,1446,Dana
-upload stuck at  for more than  minutes,technical,1447,Dana
-overcharged by ghs  on my last bill,billing,1448,Dana
-upload stuck at  for more than  minutes,technical,1449,Alice
-unknown,technical,1450,Dana
-cannot update billing address page keeps reloading,billing,1451,Bob
-can i migrate data from zendesk,other,1452,Alice
-need receipt for reimbursement for order,billing,1453,Dana
-do you offer discounts for students or ngos,other,1454,Bob
-do you offer discounts for students or ngos,other,1455,Charlie
-file export to csv generates corrupted file,technical,1457,Alice
-subscription renewal charged incorrectly this month,billing,1458,Alice
-how do i delete my account and all data,account,1459,Alice
-where can i find api rate limits documentation,other,1460,Bob
-currency converted incorrectly expected usd,billing,1461,Dana
-need receipt for reimbursement for order,billing,1462,Bob
-when is the enterprise pricing changing,other,1463,Alice
-looking for a product roadmap or upcoming features,other,1464,Alice
-subscription renewal charged incorrectly this month,billing,1465,Dana
-subscription renewal charged incorrectly this month,billing,1466,Bob
-subscription renewal charged incorrectly this month,billing,1467,Charlie
-promo code black not applied at checkout,billing,1468,Alice
-search results page is blank after entering a query,technical,1469,Bob
-profile picture upload fails with unknown error,account,1470,Charlie
-requesting invoice to be sent monthly instead of weekly,other,1471,Dana
-website returns  error on checkout,technical,1472,Bob
-how can i request my data under gdpr,other,1473,Dana
-profile picture upload fails with unknown error,account,1474,Dana
-dark mode toggled but ui stays light,technical,1475,Charlie
-please add support for webhooks in the next release,other,1476,Alice
-cannot update billing address page keeps reloading,billing,1478,Alice
-can i migrate data from zendesk,other,1480,Bob
-subscription renewal charged incorrectly this month,billing,1481,Alice
-please provide onboarding training for my team,other,1482,Charlie
-promo code save not applied at checkout,billing,1483,Charlie
-search results page is blank after entering a query,technical,1484,Dana
-please provide onboarding training for my team,other,1485,Bob
-is there a sandbox environment for testing,other,1486,Bob
-need to merge two accounts into one,account,1487,Bob
-incorrect role assigned need admin access for my team,account,1488,Charlie
-overcharged by  on my last bill,billing,1489,Charlie
-unknown,technical,1490,Bob
-unknown,technical,1491,Alice
-overcharged by  on my last bill,billing,1492,Charlie
-subscription renewal charged incorrectly this month,billing,1493,Bob
-locked out after too many login attempts,account,1494,Charlie
-website returns  error on profile,technical,1496,Alice
-subscription renewal charged incorrectly this month,billing,1497,Bob
-charged twice for the same order,billing,1498,Dana
-integration with slack fails with timeout,technical,1499,Dana
-how can i request my data under gdpr,other,1500,Alice
-website returns  error on checkout,technical,1501,Charlie
-requesting invoice to be sent monthly instead of weekly,other,1502,Charlie
-upload stuck at  for more than  minutes,technical,1503,Charlie
-forgot my password and reset link never arrives,account,1504,Bob
-please provide onboarding training for my team,other,1505,Charlie
-please provide onboarding training for my team,other,1506,Bob
-profile picture upload fails with unknown error,account,1507,Bob
-do you offer discounts for students or ngos,other,1508,Charlie
-when is the pro pricing changing,other,1509,Bob
-requesting invoice to be sent monthly instead of weekly,other,1510,Bob
-dark mode toggled but ui stays light,technical,1511,Dana
-do you offer discounts for students or ngos,other,1512,Charlie
-live chat widget not loading on homepage,technical,1513,Alice
-refund not received after  days,billing,1514,Alice
-currency converted incorrectly expected usd,billing,1515,Charlie
-cant verify phone number code not sent,account,1516,Alice
-dark mode toggled but ui stays light,technical,1517,Charlie
-search results page is blank after entering a query,technical,1518,Dana
-payment failed during checkout with card ending,billing,1519,Alice
+text,label,ticket_id,agent_name,text_cleaned
+where can i find api rate limits documentation,other,1000,Dana,find api rate limit documentation
+can i migrate data from freshdesk,other,1001,Bob,migrate data freshdesk
+cannot update billing address page keeps reloading,billing,1002,Charlie,cannot update billing address page keep reloading
+looking for a product roadmap or upcoming features,other,1003,Dana,looking product roadmap upcoming feature
+dark mode toggled but ui stays light,technical,1004,Alice,dark mode toggled ui stay light
+promo code spring not applied at checkout,billing,1005,Alice,promo code spring applied checkout
+incorrect role assigned need admin access for my team,account,1006,Dana,incorrect role assigned need admin access team
+file export to csv generates corrupted file,technical,1007,Dana,file export csv generates corrupted file
+overcharged by ghs  on my last bill,billing,1008,Dana,overcharged ghs last bill
+unknown,account,1009,Dana,unknown
+username amina already taken but its my old account,account,1010,Bob,username amina already taken old account
+please provide onboarding training for my team,other,1011,Charlie,please provide onboarding training team
+integration with slack fails with timeout,technical,1012,Charlie,integration slack fails timeout
+need to change email from oldmailcom to mecompanycom,account,1013,Bob,need change email oldmailcom mecompanycom
+cannot update billing address page keeps reloading,billing,1014,Charlie,cannot update billing address page keep reloading
+need to merge two accounts into one,account,1015,Alice,need merge two account one
+do you offer discounts for students or ngos,other,1016,Bob,offer discount student ngo
+how can i request my data under gdpr,other,1018,Dana,request data gdpr
+how do i delete my account and all data,account,1019,Alice,delete account data
+do you offer discounts for students or ngos,other,1020,Charlie,offer discount student ngo
+promo code save not applied at checkout,billing,1021,Charlie,promo code save applied checkout
+please provide onboarding training for my team,other,1022,Dana,please provide onboarding training team
+subscription renewal charged incorrectly this month,billing,1023,Alice,subscription renewal charged incorrectly month
+currency converted incorrectly expected ghs,billing,1024,Charlie,currency converted incorrectly expected ghs
+forgot my password and reset link never arrives,account,1025,Alice,forgot password reset link never arrives
+file export to csv generates corrupted file,technical,1026,Charlie,file export csv generates corrupted file
+promo code black not applied at checkout,billing,1027,Bob,promo code black applied checkout
+overcharged by  on my last bill,billing,1028,Dana,overcharged last bill
+payment failed during checkout with card ending,billing,1029,Dana,payment failed checkout card ending
+unknown,billing,1030,Charlie,unknown
+how do i delete my account and all data,account,1031,Charlie,delete account data
+incorrect role assigned need admin access for my team,account,1032,Alice,incorrect role assigned need admin access team
+app crashes when i tap submit on android,technical,1033,Charlie,app crash tap submit android
+incorrect role assigned need admin access for my team,account,1034,Alice,incorrect role assigned need admin access team
+locked out after too many login attempts,account,1035,Bob,locked many login attempt
+locked out after too many login attempts,account,1036,Dana,locked many login attempt
+cannot enable twofactor authentication qr fails to scan,account,1037,Charlie,cannot enable twofactor authentication qr fails scan
+how do i delete my account and all data,account,1038,Bob,delete account data
+do you offer discounts for students or ngos,other,1039,Alice,offer discount student ngo
+cant verify phone number code not sent,account,1040,Dana,cant verify phone number code sent
+need to merge two accounts into one,account,1041,Bob,need merge two account one
+notifications not arriving on ios after latest update,technical,1042,Alice,notification arriving io latest update
+need to merge two accounts into one,account,1043,Dana,need merge two account one
+currency converted incorrectly expected ghs,billing,1044,Charlie,currency converted incorrectly expected ghs
+dark mode toggled but ui stays light,technical,1045,Alice,dark mode toggled ui stay light
+subscription renewal charged incorrectly this month,billing,1046,Dana,subscription renewal charged incorrectly month
+cant verify phone number code not sent,account,1047,Dana,cant verify phone number code sent
+subscription renewal charged incorrectly this month,billing,1048,Charlie,subscription renewal charged incorrectly month
+when is the pro pricing changing,other,1049,Dana,pro pricing changing
+payment failed during checkout with card ending,billing,1050,Charlie,payment failed checkout card ending
+looking for a product roadmap or upcoming features,other,1051,Charlie,looking product roadmap upcoming feature
+can i migrate data from freshdesk,other,1052,Bob,migrate data freshdesk
+is there a sandbox environment for testing,other,1053,Charlie,sandbox environment testing
+subscription renewal charged incorrectly this month,billing,1054,Charlie,subscription renewal charged incorrectly month
+dark mode toggled but ui stays light,technical,1056,Dana,dark mode toggled ui stay light
+where can i find api rate limits documentation,other,1057,Bob,find api rate limit documentation
+promo code black not applied at checkout,billing,1058,Alice,promo code black applied checkout
+charged twice for the same order,billing,1059,Alice,charged twice order
+cannot enable twofactor authentication qr fails to scan,account,1061,Bob,cannot enable twofactor authentication qr fails scan
+subscription renewal charged incorrectly this month,billing,1062,Dana,subscription renewal charged incorrectly month
+dark mode toggled but ui stays light,technical,1063,Bob,dark mode toggled ui stay light
+when is the basic pricing changing,other,1064,Alice,basic pricing changing
+locked out after too many login attempts,account,1065,Alice,locked many login attempt
+do you offer discounts for students or ngos,other,1066,Dana,offer discount student ngo
+unknown,account,1068,Dana,unknown
+please provide onboarding training for my team,other,1070,Bob,please provide onboarding training team
+overcharged by  on my last bill,billing,1071,Charlie,overcharged last bill
+please provide onboarding training for my team,other,1072,Alice,please provide onboarding training team
+unknown,account,1073,Charlie,unknown
+cannot enable twofactor authentication qr fails to scan,account,1074,Charlie,cannot enable twofactor authentication qr fails scan
+do you offer discounts for students or ngos,other,1075,Alice,offer discount student ngo
+unknown,billing,1076,Charlie,unknown
+can i migrate data from zendesk,other,1077,Bob,migrate data zendesk
+website returns  error on checkout,technical,1078,Alice,website return error checkout
+locked out after too many login attempts,account,1079,Charlie,locked many login attempt
+refund not received after  days,billing,1080,Charlie,refund received day
+promo code spring not applied at checkout,billing,1081,Charlie,promo code spring applied checkout
+cannot update billing address page keeps reloading,billing,1083,Alice,cannot update billing address page keep reloading
+unknown,technical,1084,Alice,unknown
+integration with slack fails with timeout,technical,1085,Alice,integration slack fails timeout
+charged twice for the same order,billing,1086,Dana,charged twice order
+when is the pro pricing changing,other,1087,Charlie,pro pricing changing
+profile picture upload fails with unknown error,account,1088,Alice,profile picture upload fails unknown error
+cant verify phone number code not sent,account,1089,Dana,cant verify phone number code sent
+need to merge two accounts into one,account,1090,Alice,need merge two account one
+how can i request my data under gdpr,other,1091,Charlie,request data gdpr
+live chat widget not loading on homepage,technical,1092,Charlie,live chat widget loading homepage
+file export to csv generates corrupted file,technical,1093,Alice,file export csv generates corrupted file
+profile picture upload fails with unknown error,account,1094,Bob,profile picture upload fails unknown error
+subscription renewal charged incorrectly this month,billing,1095,Alice,subscription renewal charged incorrectly month
+file export to csv generates corrupted file,technical,1096,Dana,file export csv generates corrupted file
+invoice is missing vat number,billing,1097,Bob,invoice missing vat number
+cant verify phone number code not sent,account,1098,Charlie,cant verify phone number code sent
+payment failed during checkout with card ending,billing,1099,Charlie,payment failed checkout card ending
+locked out after too many login attempts,account,1100,Dana,locked many login attempt
+incorrect role assigned need admin access for my team,account,1101,Alice,incorrect role assigned need admin access team
+need to merge two accounts into one,account,1102,Charlie,need merge two account one
+unknown,billing,1104,Bob,unknown
+need to merge two accounts into one,account,1105,Alice,need merge two account one
+invoice is missing vat number,billing,1106,Dana,invoice missing vat number
+need to change email from useroldco to mecompanycom,account,1107,Alice,need change email useroldco mecompanycom
+how can i request my data under gdpr,other,1108,Bob,request data gdpr
+locked out after too many login attempts,account,1109,Bob,locked many login attempt
+can i migrate data from freshdesk,other,1110,Bob,migrate data freshdesk
+please add support for audit logs in the next release,other,1111,Charlie,please add support audit log next release
+promo code black not applied at checkout,billing,1112,Bob,promo code black applied checkout
+is there a sandbox environment for testing,other,1113,Charlie,sandbox environment testing
+charged twice for the same order,billing,1114,Charlie,charged twice order
+upload stuck at  for more than  minutes,technical,1115,Charlie,upload stuck minute
+forgot my password and reset link never arrives,account,1116,Bob,forgot password reset link never arrives
+app crashes when i tap save on android,technical,1117,Bob,app crash tap save android
+live chat widget not loading on homepage,technical,1118,Charlie,live chat widget loading homepage
+website returns  error on profile,technical,1119,Charlie,website return error profile
+username amina already taken but its my old account,account,1120,Dana,username amina already taken old account
+do you offer discounts for students or ngos,other,1121,Alice,offer discount student ngo
+forgot my password and reset link never arrives,account,1122,Alice,forgot password reset link never arrives
+live chat widget not loading on homepage,technical,1123,Charlie,live chat widget loading homepage
+unknown,account,1124,Charlie,unknown
+invoice is missing vat number,billing,1125,Charlie,invoice missing vat number
+do you offer discounts for students or ngos,other,1126,Alice,offer discount student ngo
+can i migrate data from excel,other,1128,Dana,migrate data excel
+dark mode toggled but ui stays light,technical,1129,Alice,dark mode toggled ui stay light
+when is the basic pricing changing,other,1130,Bob,basic pricing changing
+promo code black not applied at checkout,billing,1131,Charlie,promo code black applied checkout
+please provide onboarding training for my team,other,1132,Alice,please provide onboarding training team
+requesting invoice to be sent monthly instead of weekly,other,1133,Charlie,requesting invoice sent monthly instead weekly
+need receipt for reimbursement for order,billing,1134,Alice,need receipt reimbursement order
+need receipt for reimbursement for order,billing,1135,Charlie,need receipt reimbursement order
+can i migrate data from zendesk,other,1136,Bob,migrate data zendesk
+live chat widget not loading on homepage,technical,1137,Charlie,live chat widget loading homepage
+file export to csv generates corrupted file,technical,1138,Alice,file export csv generates corrupted file
+website returns  error on orders,technical,1139,Charlie,website return error order
+website returns  error on profile,technical,1140,Dana,website return error profile
+cant verify phone number code not sent,account,1141,Dana,cant verify phone number code sent
+do you offer discounts for students or ngos,other,1143,Alice,offer discount student ngo
+need to change email from useroldco to mecompanycom,account,1144,Alice,need change email useroldco mecompanycom
+currency converted incorrectly expected usd,billing,1145,Bob,currency converted incorrectly expected usd
+app crashes when i tap login on android,technical,1146,Charlie,app crash tap login android
+do you offer discounts for students or ngos,other,1147,Alice,offer discount student ngo
+website returns  error on profile,technical,1148,Charlie,website return error profile
+when is the pro pricing changing,other,1149,Alice,pro pricing changing
+live chat widget not loading on homepage,technical,1150,Dana,live chat widget loading homepage
+overcharged by  on my last bill,billing,1151,Alice,overcharged last bill
+search results page is blank after entering a query,technical,1152,Dana,search result page blank entering query
+search results page is blank after entering a query,technical,1153,Alice,search result page blank entering query
+profile picture upload fails with unknown error,account,1154,Charlie,profile picture upload fails unknown error
+unknown,other,1155,Dana,unknown
+notifications not arriving on ios after latest update,technical,1156,Alice,notification arriving io latest update
+refund not received after  days,billing,1157,Dana,refund received day
+how do i delete my account and all data,account,1158,Dana,delete account data
+incorrect role assigned need admin access for my team,account,1159,Alice,incorrect role assigned need admin access team
+requesting invoice to be sent monthly instead of weekly,other,1160,Alice,requesting invoice sent monthly instead weekly
+overcharged by ghs  on my last bill,billing,1161,Alice,overcharged ghs last bill
+profile picture upload fails with unknown error,account,1162,Bob,profile picture upload fails unknown error
+overcharged by  on my last bill,billing,1163,Alice,overcharged last bill
+file export to csv generates corrupted file,technical,1164,Charlie,file export csv generates corrupted file
+requesting invoice to be sent monthly instead of weekly,other,1165,Alice,requesting invoice sent monthly instead weekly
+cant verify phone number code not sent,account,1167,Alice,cant verify phone number code sent
+when is the enterprise pricing changing,other,1168,Dana,enterprise pricing changing
+requesting invoice to be sent monthly instead of weekly,other,1169,Dana,requesting invoice sent monthly instead weekly
+username alex already taken but its my old account,account,1170,Bob,username alex already taken old account
+integration with stripe fails with timeout,technical,1171,Charlie,integration stripe fails timeout
+can i migrate data from excel,other,1172,Bob,migrate data excel
+need to merge two accounts into one,account,1173,Alice,need merge two account one
+profile picture upload fails with unknown error,account,1174,Dana,profile picture upload fails unknown error
+looking for a product roadmap or upcoming features,other,1175,Bob,looking product roadmap upcoming feature
+charged twice for the same order,billing,1176,Bob,charged twice order
+payment failed during checkout with card ending,billing,1177,Dana,payment failed checkout card ending
+please provide onboarding training for my team,other,1178,Bob,please provide onboarding training team
+dark mode toggled but ui stays light,technical,1179,Alice,dark mode toggled ui stay light
+how do i delete my account and all data,account,1180,Bob,delete account data
+when is the pro pricing changing,other,1181,Alice,pro pricing changing
+can i migrate data from excel,other,1182,Alice,migrate data excel
+locked out after too many login attempts,account,1184,Dana,locked many login attempt
+profile picture upload fails with unknown error,account,1185,Bob,profile picture upload fails unknown error
+looking for a product roadmap or upcoming features,other,1186,Dana,looking product roadmap upcoming feature
+currency converted incorrectly expected gbp,billing,1187,Charlie,currency converted incorrectly expected gbp
+how do i delete my account and all data,account,1188,Bob,delete account data
+live chat widget not loading on homepage,technical,1189,Dana,live chat widget loading homepage
+overcharged by  on my last bill,billing,1190,Bob,overcharged last bill
+locked out after too many login attempts,account,1191,Dana,locked many login attempt
+how do i delete my account and all data,account,1192,Dana,delete account data
+subscription renewal charged incorrectly this month,billing,1193,Dana,subscription renewal charged incorrectly month
+unknown,technical,1194,Charlie,unknown
+charged twice for the same order,billing,1195,Bob,charged twice order
+refund not received after  days,billing,1196,Alice,refund received day
+when is the pro pricing changing,other,1197,Charlie,pro pricing changing
+looking for a product roadmap or upcoming features,other,1198,Charlie,looking product roadmap upcoming feature
+when is the enterprise pricing changing,other,1199,Charlie,enterprise pricing changing
+locked out after too many login attempts,account,1200,Dana,locked many login attempt
+need receipt for reimbursement for order,billing,1201,Bob,need receipt reimbursement order
+invoice is missing vat number,billing,1202,Alice,invoice missing vat number
+need to merge two accounts into one,account,1203,Alice,need merge two account one
+please provide onboarding training for my team,other,1204,Dana,please provide onboarding training team
+app crashes when i tap submit on android,technical,1205,Dana,app crash tap submit android
+payment failed during checkout with card ending,billing,1206,Charlie,payment failed checkout card ending
+need to change email from useroldco to usernewco,account,1207,Alice,need change email useroldco usernewco
+how do i delete my account and all data,account,1209,Charlie,delete account data
+where can i find api rate limits documentation,other,1210,Bob,find api rate limit documentation
+looking for a product roadmap or upcoming features,other,1211,Dana,looking product roadmap upcoming feature
+search results page is blank after entering a query,technical,1212,Bob,search result page blank entering query
+notifications not arriving on ios after latest update,technical,1213,Alice,notification arriving io latest update
+dark mode toggled but ui stays light,technical,1214,Bob,dark mode toggled ui stay light
+cannot update billing address page keeps reloading,billing,1215,Alice,cannot update billing address page keep reloading
+where can i find api rate limits documentation,other,1216,Alice,find api rate limit documentation
+do you offer discounts for students or ngos,other,1217,Charlie,offer discount student ngo
+refund not received after  days,billing,1218,Charlie,refund received day
+incorrect role assigned need admin access for my team,account,1219,Alice,incorrect role assigned need admin access team
+where can i find api rate limits documentation,other,1220,Dana,find api rate limit documentation
+refund not received after  days,billing,1221,Dana,refund received day
+upload stuck at  for more than  minutes,technical,1222,Bob,upload stuck minute
+need to merge two accounts into one,account,1223,Charlie,need merge two account one
+search results page is blank after entering a query,technical,1224,Dana,search result page blank entering query
+app crashes when i tap login on android,technical,1225,Dana,app crash tap login android
+please provide onboarding training for my team,other,1226,Dana,please provide onboarding training team
+need receipt for reimbursement for order,billing,1227,Dana,need receipt reimbursement order
+promo code black not applied at checkout,billing,1228,Charlie,promo code black applied checkout
+when is the basic pricing changing,other,1229,Dana,basic pricing changing
+live chat widget not loading on homepage,technical,1230,Dana,live chat widget loading homepage
+cannot update billing address page keeps reloading,billing,1231,Bob,cannot update billing address page keep reloading
+integration with zapier fails with timeout,technical,1232,Dana,integration zapier fails timeout
+cannot update billing address page keeps reloading,billing,1233,Charlie,cannot update billing address page keep reloading
+is there a sandbox environment for testing,other,1234,Bob,sandbox environment testing
+locked out after too many login attempts,account,1235,Bob,locked many login attempt
+please add support for offline mode in the next release,other,1236,Alice,please add support offline mode next release
+twofactor prompt loops after successful code entry,technical,1237,Alice,twofactor prompt loop successful code entry
+twofactor prompt loops after successful code entry,technical,1238,Charlie,twofactor prompt loop successful code entry
+requesting invoice to be sent monthly instead of weekly,other,1239,Dana,requesting invoice sent monthly instead weekly
+need to merge two accounts into one,account,1240,Alice,need merge two account one
+website returns  error on checkout,technical,1241,Charlie,website return error checkout
+twofactor prompt loops after successful code entry,technical,1242,Bob,twofactor prompt loop successful code entry
+need to merge two accounts into one,account,1243,Charlie,need merge two account one
+promo code black not applied at checkout,billing,1244,Dana,promo code black applied checkout
+search results page is blank after entering a query,technical,1245,Alice,search result page blank entering query
+subscription renewal charged incorrectly this month,billing,1246,Bob,subscription renewal charged incorrectly month
+payment failed during checkout with card ending,billing,1247,Charlie,payment failed checkout card ending
+forgot my password and reset link never arrives,account,1248,Charlie,forgot password reset link never arrives
+promo code welcome not applied at checkout,billing,1249,Dana,promo code welcome applied checkout
+integration with zapier fails with timeout,technical,1250,Alice,integration zapier fails timeout
+how can i request my data under gdpr,other,1252,Charlie,request data gdpr
+cannot enable twofactor authentication qr fails to scan,account,1253,Charlie,cannot enable twofactor authentication qr fails scan
+refund not received after  days,billing,1254,Bob,refund received day
+how do i delete my account and all data,account,1255,Charlie,delete account data
+incorrect role assigned need admin access for my team,account,1256,Bob,incorrect role assigned need admin access team
+username amina already taken but its my old account,account,1257,Dana,username amina already taken old account
+cannot update billing address page keeps reloading,billing,1259,Charlie,cannot update billing address page keep reloading
+looking for a product roadmap or upcoming features,other,1260,Alice,looking product roadmap upcoming feature
+dark mode toggled but ui stays light,technical,1261,Bob,dark mode toggled ui stay light
+where can i find api rate limits documentation,other,1262,Bob,find api rate limit documentation
+cannot enable twofactor authentication qr fails to scan,account,1263,Charlie,cannot enable twofactor authentication qr fails scan
+forgot my password and reset link never arrives,account,1264,Bob,forgot password reset link never arrives
+currency converted incorrectly expected eur,billing,1265,Charlie,currency converted incorrectly expected eur
+charged twice for the same order,billing,1266,Alice,charged twice order
+requesting invoice to be sent monthly instead of weekly,other,1267,Alice,requesting invoice sent monthly instead weekly
+how can i request my data under gdpr,other,1268,Bob,request data gdpr
+cant verify phone number code not sent,account,1269,Alice,cant verify phone number code sent
+notifications not arriving on ios after latest update,technical,1270,Alice,notification arriving io latest update
+requesting invoice to be sent monthly instead of weekly,other,1271,Alice,requesting invoice sent monthly instead weekly
+dark mode toggled but ui stays light,technical,1272,Charlie,dark mode toggled ui stay light
+please provide onboarding training for my team,other,1273,Dana,please provide onboarding training team
+is there a sandbox environment for testing,other,1274,Dana,sandbox environment testing
+website returns  error on checkout,technical,1275,Bob,website return error checkout
+cant verify phone number code not sent,account,1276,Alice,cant verify phone number code sent
+website returns  error on apivexport,technical,1277,Alice,website return error apivexport
+website returns  error on checkout,technical,1278,Bob,website return error checkout
+username samdev already taken but its my old account,account,1279,Alice,username samdev already taken old account
+unknown,account,1280,Charlie,unknown
+looking for a product roadmap or upcoming features,other,1281,Dana,looking product roadmap upcoming feature
+please add support for offline mode in the next release,other,1282,Bob,please add support offline mode next release
+do you offer discounts for students or ngos,other,1283,Bob,offer discount student ngo
+how do i delete my account and all data,account,1284,Bob,delete account data
+please provide onboarding training for my team,other,1285,Bob,please provide onboarding training team
+integration with stripe fails with timeout,technical,1286,Bob,integration stripe fails timeout
+how can i request my data under gdpr,other,1287,Alice,request data gdpr
+cant verify phone number code not sent,account,1288,Alice,cant verify phone number code sent
+file export to csv generates corrupted file,technical,1289,Alice,file export csv generates corrupted file
+subscription renewal charged incorrectly this month,billing,1290,Dana,subscription renewal charged incorrectly month
+dark mode toggled but ui stays light,technical,1291,Dana,dark mode toggled ui stay light
+live chat widget not loading on homepage,technical,1292,Alice,live chat widget loading homepage
+integration with slack fails with timeout,technical,1293,Alice,integration slack fails timeout
+live chat widget not loading on homepage,technical,1294,Charlie,live chat widget loading homepage
+live chat widget not loading on homepage,technical,1295,Dana,live chat widget loading homepage
+charged twice for the same order,billing,1296,Alice,charged twice order
+live chat widget not loading on homepage,technical,1297,Bob,live chat widget loading homepage
+cannot enable twofactor authentication qr fails to scan,account,1298,Charlie,cannot enable twofactor authentication qr fails scan
+please add support for offline mode in the next release,other,1299,Alice,please add support offline mode next release
+where can i find api rate limits documentation,other,1300,Alice,find api rate limit documentation
+file export to csv generates corrupted file,technical,1301,Dana,file export csv generates corrupted file
+notifications not arriving on ios after latest update,technical,1302,Dana,notification arriving io latest update
+website returns  error on orders,technical,1303,Alice,website return error order
+upload stuck at  for more than  minutes,technical,1304,Alice,upload stuck minute
+please provide onboarding training for my team,other,1305,Charlie,please provide onboarding training team
+search results page is blank after entering a query,technical,1306,Bob,search result page blank entering query
+invoice is missing vat number,billing,1307,Dana,invoice missing vat number
+username jordan already taken but its my old account,account,1308,Alice,username jordan already taken old account
+invoice is missing vat number,billing,1309,Bob,invoice missing vat number
+is there a sandbox environment for testing,other,1310,Alice,sandbox environment testing
+cannot update billing address page keeps reloading,billing,1311,Alice,cannot update billing address page keep reloading
+requesting invoice to be sent monthly instead of weekly,other,1312,Alice,requesting invoice sent monthly instead weekly
+refund not received after  days,billing,1313,Alice,refund received day
+promo code black not applied at checkout,billing,1314,Bob,promo code black applied checkout
+app crashes when i tap pay on android,technical,1315,Alice,app crash tap pay android
+unknown,billing,1316,Charlie,unknown
+cant verify phone number code not sent,account,1317,Dana,cant verify phone number code sent
+forgot my password and reset link never arrives,account,1318,Charlie,forgot password reset link never arrives
+cant verify phone number code not sent,account,1319,Charlie,cant verify phone number code sent
+do you offer discounts for students or ngos,other,1320,Dana,offer discount student ngo
+promo code spring not applied at checkout,billing,1321,Dana,promo code spring applied checkout
+where can i find api rate limits documentation,other,1322,Alice,find api rate limit documentation
+live chat widget not loading on homepage,technical,1324,Bob,live chat widget loading homepage
+subscription renewal charged incorrectly this month,billing,1325,Dana,subscription renewal charged incorrectly month
+app crashes when i tap submit on android,technical,1326,Alice,app crash tap submit android
+looking for a product roadmap or upcoming features,other,1327,Charlie,looking product roadmap upcoming feature
+subscription renewal charged incorrectly this month,billing,1328,Bob,subscription renewal charged incorrectly month
+twofactor prompt loops after successful code entry,technical,1329,Bob,twofactor prompt loop successful code entry
+integration with stripe fails with timeout,technical,1330,Alice,integration stripe fails timeout
+please provide onboarding training for my team,other,1331,Bob,please provide onboarding training team
+how do i delete my account and all data,account,1332,Dana,delete account data
+integration with slack fails with timeout,technical,1333,Charlie,integration slack fails timeout
+dark mode toggled but ui stays light,technical,1334,Alice,dark mode toggled ui stay light
+file export to csv generates corrupted file,technical,1335,Bob,file export csv generates corrupted file
+notifications not arriving on ios after latest update,technical,1336,Dana,notification arriving io latest update
+file export to csv generates corrupted file,technical,1337,Charlie,file export csv generates corrupted file
+notifications not arriving on ios after latest update,technical,1338,Dana,notification arriving io latest update
+profile picture upload fails with unknown error,account,1340,Bob,profile picture upload fails unknown error
+cant verify phone number code not sent,account,1341,Alice,cant verify phone number code sent
+dark mode toggled but ui stays light,technical,1342,Charlie,dark mode toggled ui stay light
+payment failed during checkout with card ending,billing,1343,Dana,payment failed checkout card ending
+cannot enable twofactor authentication qr fails to scan,account,1344,Charlie,cannot enable twofactor authentication qr fails scan
+need receipt for reimbursement for order,billing,1345,Dana,need receipt reimbursement order
+integration with salesforce fails with timeout,technical,1346,Alice,integration salesforce fails timeout
+is there a sandbox environment for testing,other,1347,Alice,sandbox environment testing
+file export to csv generates corrupted file,technical,1348,Charlie,file export csv generates corrupted file
+search results page is blank after entering a query,technical,1349,Bob,search result page blank entering query
+profile picture upload fails with unknown error,account,1350,Bob,profile picture upload fails unknown error
+refund not received after  days,billing,1351,Bob,refund received day
+refund not received after  days,billing,1352,Charlie,refund received day
+need to change email from useroldco to mecompanycom,account,1353,Dana,need change email useroldco mecompanycom
+live chat widget not loading on homepage,technical,1354,Charlie,live chat widget loading homepage
+where can i find api rate limits documentation,other,1355,Bob,find api rate limit documentation
+unknown,billing,1356,Charlie,unknown
+need to change email from useroldco to usernewco,account,1357,Alice,need change email useroldco usernewco
+do you offer discounts for students or ngos,other,1358,Alice,offer discount student ngo
+dark mode toggled but ui stays light,technical,1359,Bob,dark mode toggled ui stay light
+when is the enterprise pricing changing,other,1360,Bob,enterprise pricing changing
+unknown,billing,1361,Dana,unknown
+upload stuck at  for more than  minutes,technical,1362,Charlie,upload stuck minute
+integration with zapier fails with timeout,technical,1364,Bob,integration zapier fails timeout
+refund not received after  days,billing,1365,Alice,refund received day
+requesting invoice to be sent monthly instead of weekly,other,1366,Bob,requesting invoice sent monthly instead weekly
+charged twice for the same order,billing,1367,Bob,charged twice order
+cannot update billing address page keeps reloading,billing,1368,Charlie,cannot update billing address page keep reloading
+forgot my password and reset link never arrives,account,1369,Bob,forgot password reset link never arrives
+forgot my password and reset link never arrives,account,1370,Alice,forgot password reset link never arrives
+unknown,account,1371,Alice,unknown
+notifications not arriving on ios after latest update,technical,1372,Dana,notification arriving io latest update
+username alex already taken but its my old account,account,1373,Charlie,username alex already taken old account
+unknown,technical,1374,Charlie,unknown
+website returns  error on checkout,technical,1375,Dana,website return error checkout
+need to change email from oldmailcom to mecompanycom,account,1376,Charlie,need change email oldmailcom mecompanycom
+unknown,account,1377,Dana,unknown
+upload stuck at  for more than  minutes,technical,1378,Charlie,upload stuck minute
+please provide onboarding training for my team,other,1379,Bob,please provide onboarding training team
+where can i find api rate limits documentation,other,1380,Bob,find api rate limit documentation
+looking for a product roadmap or upcoming features,other,1381,Alice,looking product roadmap upcoming feature
+how can i request my data under gdpr,other,1382,Alice,request data gdpr
+live chat widget not loading on homepage,technical,1383,Bob,live chat widget loading homepage
+is there a sandbox environment for testing,other,1384,Dana,sandbox environment testing
+integration with slack fails with timeout,technical,1385,Dana,integration slack fails timeout
+profile picture upload fails with unknown error,account,1386,Dana,profile picture upload fails unknown error
+username alex already taken but its my old account,account,1387,Alice,username alex already taken old account
+can i migrate data from zendesk,other,1389,Charlie,migrate data zendesk
+do you offer discounts for students or ngos,other,1390,Alice,offer discount student ngo
+forgot my password and reset link never arrives,account,1391,Alice,forgot password reset link never arrives
+can i migrate data from jira,other,1392,Bob,migrate data jira
+website returns  error on orders,technical,1393,Charlie,website return error order
+unknown,other,1394,Charlie,unknown
+subscription renewal charged incorrectly this month,billing,1395,Alice,subscription renewal charged incorrectly month
+can i migrate data from excel,other,1396,Charlie,migrate data excel
+profile picture upload fails with unknown error,account,1397,Charlie,profile picture upload fails unknown error
+dark mode toggled but ui stays light,technical,1399,Alice,dark mode toggled ui stay light
+need receipt for reimbursement for order,billing,1400,Bob,need receipt reimbursement order
+cannot enable twofactor authentication qr fails to scan,account,1401,Dana,cannot enable twofactor authentication qr fails scan
+please provide onboarding training for my team,other,1402,Bob,please provide onboarding training team
+when is the basic pricing changing,other,1404,Alice,basic pricing changing
+cannot enable twofactor authentication qr fails to scan,account,1405,Bob,cannot enable twofactor authentication qr fails scan
+unknown,billing,1406,Charlie,unknown
+integration with slack fails with timeout,technical,1407,Bob,integration slack fails timeout
+unknown,other,1408,Bob,unknown
+need to change email from oldmailcom to newmailcom,account,1409,Alice,need change email oldmailcom newmailcom
+overcharged by  on my last bill,billing,1410,Dana,overcharged last bill
+upload stuck at  for more than  minutes,technical,1411,Charlie,upload stuck minute
+dark mode toggled but ui stays light,technical,1412,Bob,dark mode toggled ui stay light
+charged twice for the same order,billing,1413,Bob,charged twice order
+where can i find api rate limits documentation,other,1414,Dana,find api rate limit documentation
+live chat widget not loading on homepage,technical,1415,Dana,live chat widget loading homepage
+locked out after too many login attempts,account,1416,Alice,locked many login attempt
+charged twice for the same order,billing,1417,Bob,charged twice order
+cant verify phone number code not sent,account,1418,Charlie,cant verify phone number code sent
+cannot enable twofactor authentication qr fails to scan,account,1419,Bob,cannot enable twofactor authentication qr fails scan
+is there a sandbox environment for testing,other,1420,Bob,sandbox environment testing
+when is the pro pricing changing,other,1422,Dana,pro pricing changing
+profile picture upload fails with unknown error,account,1423,Alice,profile picture upload fails unknown error
+twofactor prompt loops after successful code entry,technical,1424,Alice,twofactor prompt loop successful code entry
+locked out after too many login attempts,account,1425,Bob,locked many login attempt
+dark mode toggled but ui stays light,technical,1426,Dana,dark mode toggled ui stay light
+notifications not arriving on ios after latest update,technical,1427,Alice,notification arriving io latest update
+forgot my password and reset link never arrives,account,1428,Bob,forgot password reset link never arrives
+dark mode toggled but ui stays light,technical,1429,Dana,dark mode toggled ui stay light
+incorrect role assigned need admin access for my team,account,1430,Charlie,incorrect role assigned need admin access team
+subscription renewal charged incorrectly this month,billing,1431,Bob,subscription renewal charged incorrectly month
+payment failed during checkout with card ending,billing,1432,Dana,payment failed checkout card ending
+how can i request my data under gdpr,other,1433,Charlie,request data gdpr
+overcharged by ghs  on my last bill,billing,1434,Charlie,overcharged ghs last bill
+currency converted incorrectly expected gbp,billing,1435,Bob,currency converted incorrectly expected gbp
+need receipt for reimbursement for order,billing,1436,Bob,need receipt reimbursement order
+cannot update billing address page keeps reloading,billing,1437,Dana,cannot update billing address page keep reloading
+incorrect role assigned need admin access for my team,account,1438,Bob,incorrect role assigned need admin access team
+website returns  error on profile,technical,1439,Bob,website return error profile
+how do i delete my account and all data,account,1440,Alice,delete account data
+is there a sandbox environment for testing,other,1441,Alice,sandbox environment testing
+incorrect role assigned need admin access for my team,account,1442,Bob,incorrect role assigned need admin access team
+refund not received after  days,billing,1443,Bob,refund received day
+how do i delete my account and all data,account,1444,Bob,delete account data
+upload stuck at  for more than  minutes,technical,1445,Charlie,upload stuck minute
+can i migrate data from zendesk,other,1446,Dana,migrate data zendesk
+upload stuck at  for more than  minutes,technical,1447,Dana,upload stuck minute
+overcharged by ghs  on my last bill,billing,1448,Dana,overcharged ghs last bill
+upload stuck at  for more than  minutes,technical,1449,Alice,upload stuck minute
+unknown,technical,1450,Dana,unknown
+cannot update billing address page keeps reloading,billing,1451,Bob,cannot update billing address page keep reloading
+can i migrate data from zendesk,other,1452,Alice,migrate data zendesk
+need receipt for reimbursement for order,billing,1453,Dana,need receipt reimbursement order
+do you offer discounts for students or ngos,other,1454,Bob,offer discount student ngo
+do you offer discounts for students or ngos,other,1455,Charlie,offer discount student ngo
+file export to csv generates corrupted file,technical,1457,Alice,file export csv generates corrupted file
+subscription renewal charged incorrectly this month,billing,1458,Alice,subscription renewal charged incorrectly month
+how do i delete my account and all data,account,1459,Alice,delete account data
+where can i find api rate limits documentation,other,1460,Bob,find api rate limit documentation
+currency converted incorrectly expected usd,billing,1461,Dana,currency converted incorrectly expected usd
+need receipt for reimbursement for order,billing,1462,Bob,need receipt reimbursement order
+when is the enterprise pricing changing,other,1463,Alice,enterprise pricing changing
+looking for a product roadmap or upcoming features,other,1464,Alice,looking product roadmap upcoming feature
+subscription renewal charged incorrectly this month,billing,1465,Dana,subscription renewal charged incorrectly month
+subscription renewal charged incorrectly this month,billing,1466,Bob,subscription renewal charged incorrectly month
+subscription renewal charged incorrectly this month,billing,1467,Charlie,subscription renewal charged incorrectly month
+promo code black not applied at checkout,billing,1468,Alice,promo code black applied checkout
+search results page is blank after entering a query,technical,1469,Bob,search result page blank entering query
+profile picture upload fails with unknown error,account,1470,Charlie,profile picture upload fails unknown error
+requesting invoice to be sent monthly instead of weekly,other,1471,Dana,requesting invoice sent monthly instead weekly
+website returns  error on checkout,technical,1472,Bob,website return error checkout
+how can i request my data under gdpr,other,1473,Dana,request data gdpr
+profile picture upload fails with unknown error,account,1474,Dana,profile picture upload fails unknown error
+dark mode toggled but ui stays light,technical,1475,Charlie,dark mode toggled ui stay light
+please add support for webhooks in the next release,other,1476,Alice,please add support webhooks next release
+cannot update billing address page keeps reloading,billing,1478,Alice,cannot update billing address page keep reloading
+can i migrate data from zendesk,other,1480,Bob,migrate data zendesk
+subscription renewal charged incorrectly this month,billing,1481,Alice,subscription renewal charged incorrectly month
+please provide onboarding training for my team,other,1482,Charlie,please provide onboarding training team
+promo code save not applied at checkout,billing,1483,Charlie,promo code save applied checkout
+search results page is blank after entering a query,technical,1484,Dana,search result page blank entering query
+please provide onboarding training for my team,other,1485,Bob,please provide onboarding training team
+is there a sandbox environment for testing,other,1486,Bob,sandbox environment testing
+need to merge two accounts into one,account,1487,Bob,need merge two account one
+incorrect role assigned need admin access for my team,account,1488,Charlie,incorrect role assigned need admin access team
+overcharged by  on my last bill,billing,1489,Charlie,overcharged last bill
+unknown,technical,1490,Bob,unknown
+unknown,technical,1491,Alice,unknown
+overcharged by  on my last bill,billing,1492,Charlie,overcharged last bill
+subscription renewal charged incorrectly this month,billing,1493,Bob,subscription renewal charged incorrectly month
+locked out after too many login attempts,account,1494,Charlie,locked many login attempt
+website returns  error on profile,technical,1496,Alice,website return error profile
+subscription renewal charged incorrectly this month,billing,1497,Bob,subscription renewal charged incorrectly month
+charged twice for the same order,billing,1498,Dana,charged twice order
+integration with slack fails with timeout,technical,1499,Dana,integration slack fails timeout
+how can i request my data under gdpr,other,1500,Alice,request data gdpr
+website returns  error on checkout,technical,1501,Charlie,website return error checkout
+requesting invoice to be sent monthly instead of weekly,other,1502,Charlie,requesting invoice sent monthly instead weekly
+upload stuck at  for more than  minutes,technical,1503,Charlie,upload stuck minute
+forgot my password and reset link never arrives,account,1504,Bob,forgot password reset link never arrives
+please provide onboarding training for my team,other,1505,Charlie,please provide onboarding training team
+please provide onboarding training for my team,other,1506,Bob,please provide onboarding training team
+profile picture upload fails with unknown error,account,1507,Bob,profile picture upload fails unknown error
+do you offer discounts for students or ngos,other,1508,Charlie,offer discount student ngo
+when is the pro pricing changing,other,1509,Bob,pro pricing changing
+requesting invoice to be sent monthly instead of weekly,other,1510,Bob,requesting invoice sent monthly instead weekly
+dark mode toggled but ui stays light,technical,1511,Dana,dark mode toggled ui stay light
+do you offer discounts for students or ngos,other,1512,Charlie,offer discount student ngo
+live chat widget not loading on homepage,technical,1513,Alice,live chat widget loading homepage
+refund not received after  days,billing,1514,Alice,refund received day
+currency converted incorrectly expected usd,billing,1515,Charlie,currency converted incorrectly expected usd
+cant verify phone number code not sent,account,1516,Alice,cant verify phone number code sent
+dark mode toggled but ui stays light,technical,1517,Charlie,dark mode toggled ui stay light
+search results page is blank after entering a query,technical,1518,Dana,search result page blank entering query
+payment failed during checkout with card ending,billing,1519,Alice,payment failed checkout card ending
