@@ -32,3 +32,7 @@ reports/        # team findings
 - Weekly, group branches may be merged to `main` for milestone comparisons.
 
 _Last updated: 2025-10-03 15:28 UTC_
+
+...
+conda create -p venv python==3.10 -y
+...
