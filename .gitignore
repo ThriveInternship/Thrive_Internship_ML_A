@@ -7,6 +7,7 @@ __pycache__/
 .venv
 .envrc
 /venv/
+0.20.1/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -22,6 +23,14 @@ data/*.csv
 runs/
 models/
 checkpoints/
+mlruns/
+mlflow/
+
+# Training Results
+results/
+outputs/
+checkpoints/
+models/
 
 # OS
 .DS_Store
@@ -29,3 +38,5 @@ Thumbs.db
 
 # Docker
 *.log
+"0.20.1" 
+"0.20.1" 
