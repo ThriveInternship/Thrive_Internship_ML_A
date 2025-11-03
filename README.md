@@ -33,6 +33,9 @@ reports/        # team findings
 
 _Last updated: 2025-10-03 15:28 UTC_
 
-...
-conda create -p venv python==3.10 -y
-...
+# Create and activate virtual environment
+python3 -m venv .venv && source .venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+python -m pip install --upgrade pip
