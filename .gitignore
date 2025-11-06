@@ -27,17 +27,74 @@ checkpoints/
 mlruns/
 mlflow/
 
+# Model files
+*.pkl
+*.joblib
+*.bin
+*.safetensors
+*.h5
+*.pt
+*.pth
+
+# Model directories
+models/
+artifacts/
+distilbert_model/
+trainer_results/
+mlruns/
+results/
+*.egg-info/
+
 # Training Results
 results/
 outputs/
 checkpoints/
 models/
+trainer_results/
+/trainer_results/
 
-# OS
+# OSw
 .DS_Store
 Thumbs.db
+
+# Large data files
+*.csv
+*.json
+*.parquet
+*.feather
+
+*.zip
+*.tar.gz
+EOF
 
 # Docker
 *.log
 "0.20.1" 
 "0.20.1" 
+"0.26.0"
+"0.26.0'"
+
+echo "
+# Training results and model checkpoints
+notebooks/trainer_results/
+notebooks/results/
+notebooks/mlruns/
+
+# Package cache and version folders
+0.26.0
+0.26.0'
+
+# Model files
+*.safetensors
+*.bin
+*.pkl
+*.joblib
+*.pt
+*.pth
+
+# Checkpoint files
+checkpoint-*
+optimizer.pt
+scheduler.pt
+rng_state.pth
+" >> .gitignore
