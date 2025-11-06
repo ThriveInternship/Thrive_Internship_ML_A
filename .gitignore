@@ -97,5 +97,7 @@ checkpoint-*
 optimizer.pt
 scheduler.pt
 rng_state.pth
-" >> .gitignore"allfiles.tx" 
-"git" 
+
+" >> .gitignore"
+allfiles.tx
+git 
