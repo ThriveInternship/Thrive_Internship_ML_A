@@ -1,0 +1,44 @@
+{
+  "model": "majority_baseline",
+  "dataset": "validation",
+  "accuracy": 0.2632,
+  "weighted_f1": 0.1096,
+  "classification_report": {
+    "account": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 23
+    },
+    "billing": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 23
+    },
+    "other": {
+      "precision": 0.26,
+      "recall": 1.0,
+      "f1_score": 0.42,
+      "support": 25
+    },
+    "technical": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "support": 24
+    },
+    "macro_avg": {
+      "precision": 0.07,
+      "recall": 0.25,
+      "f1_score": 0.10,
+      "support": 95
+    },
+    "weighted_avg": {
+      "precision": 0.07,
+      "recall": 0.26,
+      "f1_score": 0.11,
+      "support": 95
+    }
+  }
+}
