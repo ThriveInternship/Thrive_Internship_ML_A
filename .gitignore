@@ -11,8 +11,7 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb_convert/
-.artifacts/
-artifacts/
+
 
 # Data
 !data/README.md
