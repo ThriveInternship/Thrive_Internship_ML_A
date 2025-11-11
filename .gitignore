@@ -28,3 +28,20 @@ Thumbs.db
 
 # Docker
 *.log
+
+#text editor
+personal.txt 
+
+#Setup files
+setup_env.bat
+
+#mlruns
+mlruns/
+mlartifacts/
+
+#gui
+gui/
+
+
+
+
