@@ -1,0 +1,78 @@
+# =====================================================================
+# cleanup_large_files.ps1
+# ---------------------------------------------------------------------
+# This script removes large files (like model.safetensors) from your
+# Git history so you can successfully push to GitHub.
+# It creates a backup, cleans the repository, and force-pushes changes.
+# =====================================================================
+
+# -----------------------------
+# 1. Set project path and file
+# -----------------------------
+$projectPath = "C:\Users\LENOVO\Desktop\Thrive Projects\Thrive_Internship_ML_A"
+$largeFile = "src/modeling/distilbert-ticket-classifier.csv/model.safetensors"
+$backupDir = "$projectPath\backup_model"
+
+Write-Host "🔹 Navigating to project directory..."
+Set-Location $projectPath
+
+# -----------------------------
+# 2. Backup the large file
+# -----------------------------
+if (Test-Path $largeFile) {
+    Write-Host "📦 Backing up large model file to: $backupDir"
+    New-Item -ItemType Directory -Force -Path $backupDir | Out-Null
+    Copy-Item $largeFile -Destination $backupDir -Force
+    Write-Host "✅ Backup completed."
+} else {
+    Write-Host "⚠️ File not found: $largeFile"
+}
+
+# -----------------------------
+# 3. Remove file from Git tracking
+# -----------------------------
+Write-Host "🧹 Removing large file from Git tracking..."
+git rm --cached "$largeFile"
+git commit -m "Remove large model file from Git tracking"
+
+# -----------------------------
+# 4. Update .gitignore
+# -----------------------------
+Write-Host "✍️ Updating .gitignore..."
+Add-Content -Path ".gitignore" -Value "*.safetensors"
+Add-Content -Path ".gitignore" -Value "*.bin"
+Add-Content -Path ".gitignore" -Value "*.pt"
+git add .gitignore
+git commit -m "Add large model files to .gitignore"
+
+# -----------------------------
+# 5. Install git-filter-repo if missing
+# -----------------------------
+Write-Host "🔧 Ensuring git-filter-repo is available..."
+if (-not (Get-Command git-filter-repo -ErrorAction SilentlyContinue)) {
+    Write-Host "📦 Installing git-filter-repo via pip..."
+    pip install git-filter-repo
+}
+
+# -----------------------------
+# 6. Remove file from Git history
+# -----------------------------
+Write-Host "🧽 Cleaning file from Git history..."
+git filter-repo --path "$largeFile" --invert-paths
+
+# -----------------------------
+# 7. Force push clean branch
+# -----------------------------
+Write-Host "🚀 Force pushing clean branch to remote..."
+git push origin group-d --force
+
+# -----------------------------
+# 8. Verify cleanup
+# -----------------------------
+Write-Host "🔍 Verifying cleanup..."
+git log -- "$largeFile"
+
+Write-Host ""
+Write-Host "✅ Cleanup complete!"
+Write-Host "📁 Backup of your model is located at: $backupDir"
+Write-Host "You can now safely push new commits without large files blocking the repo."
