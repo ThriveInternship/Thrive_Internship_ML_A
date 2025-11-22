@@ -1,0 +1,58 @@
+{
+  "model": "distilbert",
+  "dataset": "test",
+  "accuracy": 1.0,
+  "f1_weighted": 1.0,
+  "f1_per_class": [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+  "classification_report": {
+    "account": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 13
+    },
+    "billing": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 7
+    },
+    "other": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 3
+    },
+    "technical": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 22
+    },
+    "macro_avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 45
+    },
+    "weighted_avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 45
+    }
+  },
+  "confusion_matrix": {
+    "labels": ["account", "billing", "other", "technical"],
+    "matrix": [
+      [13, 0, 0, 0],
+      [0, 7, 0, 0],
+      [0, 0, 3, 0],
+      [0, 0, 0, 22]
+    ]
+  },
+  "warnings": [
+    "F-score is ill-defined for some labels with no true or predicted samples. Use `zero_division` to control this behavior."
+  ],
+  "notes": "No misclassified samples found in the test set. Confusion matrix confirms perfect predictions across all four classes."
+}
