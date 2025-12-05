@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClassifAI - Smart Ticket Classifier</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+    }
+
+    h1 {
+        color: #0078d7;
+        font-size: 2.5em;
+        margin-bottom: 5px;
+    }
+
+    .subtitle {
+        font-size: 1em;
+        color: #555;
+        margin-bottom: 30px;
+        text-align: center;
+        max-width: 600px;
+    }
+
+    .container {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        max-width: 700px;
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 1em;
+        resize: none;
+    }
+
+    button {
+        margin-top: 15px;
+        margin-right: 5px;
+        background-color: #0078d7;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #005fa3;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+
+    canvas {
+        margin-top: 25px;
+    }
+
+    .category {
+        display: inline-block;
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        text-transform: lowercase;
+        font-size: 0.85em;
+    }
+
+    .history {
+        margin-top: 25px;
+    }
+
+    .history h3 {
+        margin-bottom: 10px;
+    }
+
+    /* Horizontal slider with snap */
+    .history-slider {
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
+        padding-bottom: 10px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .history-slider::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .history-slider::-webkit-scrollbar-thumb {
+        background: #0078d7;
+        border-radius: 4px;
+    }
+
+    .ticket-card {
+        min-width: 250px;
+        background: white;
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        flex-shrink: 0;
+        border-left: 5px solid transparent;
+        scroll-snap-align: start;
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: all 0.5s ease;
+    }
+
+    .ticket-card.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .ticket-card.highlight {
+        animation: glow 1.5s ease-in-out 2;
+    }
+
+    @keyframes glow {
+        0%, 100% { box-shadow: 0 0 10px 2px #0078d7; }
+        50% { box-shadow: 0 0 20px 5px #0078d7; }
+    }
+
+    .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #0078d7;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+
+<h1>ClassifAI</h1>
+<div class="subtitle">
+    Your smart ticket assistant powered by AI
+</div>
+
+<div class="container">
+    <textarea id="ticketInput" placeholder="Type your customer issue or ticket here..."></textarea>
+    <button onclick="classifyTicket()">Classify</button>
+    <button onclick="retrieveHistory()">Retrieve History</button>
+    <button onclick="printHistory()">Print History</button>
+    <button onclick="clearHistory()">Clear History</button>
+    <div id="result" style="display:none;"></div>
+    <canvas id="confidenceChart" width="400" height="200" style="display:none;"></canvas>
+
+    <div class="history">
+        <h3>Classification History</h3>
+        <div class="history-slider" id="historySlider"></div>
+    </div>
+</div>
+
+<script>
+// Dynamically set API_BASE_URL if not already defined
+// This will be injected by the notebook or updated based on the current environment
+if (typeof window.API_BASE_URL === 'undefined') {
+    // Fallback: try localhost first, then window.location.origin
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        window.API_BASE_URL = 'http://localhost:8000';
+    } else {
+        // For Colab/ngrok deployment, use current origin
+        window.API_BASE_URL = window.location.origin;
+    }
+}
+
+const categoryColors = {
+    account: '#0078d7',
+    billing: '#f7c325',
+    technical: '#e74c3c',
+    other: '#27ae60'
+};
+
+const apiUrl = window.API_BASE_URL + "/predict";
+let chart;
+let history = [];
+
+async function classifyTicket() {
+    const ticketText = document.getElementById('ticketInput').value.trim();
+    const resultDiv = document.getElementById('result');
+    const chartCanvas = document.getElementById('confidenceChart');
+
+    resultDiv.style.display = 'none';
+    chartCanvas.style.display = 'none';
+    resultDiv.textContent = '';
+
+    if (!ticketText) {
+        resultDiv.style.display = 'block';
+        resultDiv.style.color = 'red';
+        resultDiv.textContent = 'Please enter a ticket message.';
+        return;
+    }
+
+    resultDiv.style.display = 'block';
+    resultDiv.style.color = 'black';
+    resultDiv.innerHTML = 'Classifying... <span class="spinner"></span>';
+
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({text: ticketText})
+        });
+
+        if (!response.ok) throw new Error(`API error: ${response.status}`);
+        const data = await response.json();
+
+        const cat = data.predicted_category.toLowerCase();
+        const catColor = categoryColors[cat] || '#000';
+
+        resultDiv.innerHTML = `
+            <b>Predicted Category:</b> 
+            <span class="category" style="background:${catColor}">${data.predicted_category}</span>
+            <br><b>Confidence:</b> ${data.confidence}%
+        `;
+
+        const categories = Object.keys(categoryColors);
+        const values = categories.map(c => (data.confidences?.[c] || data.probs?.[c] || 0) * 100);
+
+        chartCanvas.style.display = 'block';
+        if (chart) chart.destroy();
+
+        chart = new Chart(chartCanvas, {
+            type: 'bar',
+            data: {
+                labels: categories.map(c => c.charAt(0).toUpperCase() + c.slice(1)),
+                datasets: [{
+                    label: 'Confidence (%)',
+                    data: values,
+                    backgroundColor: categories.map(c => categoryColors[c])
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'end',
+                        offset: 4,
+                        color: '#000',
+                        font: { weight: 'bold', size: 13 },
+                        formatter: value => `${value.toFixed(1)}%`
+                    },
+                    legend: { display: false },
+                    tooltip: { enabled: true }
+                },
+                scales: { y: { min: 0, max: 100, ticks: { stepSize: 10 } } }
+            },
+            plugins: [ChartDataLabels]
+        });
+
+        history.unshift({
+            text: ticketText,
+            category: data.predicted_category,
+            confidence: data.confidence
+        });
+
+        localStorage.setItem('ticketHistory', JSON.stringify(history));
+        renderHistory();
+
+    } catch (err) {
+        resultDiv.style.display = 'block';
+        resultDiv.style.color = 'red';
+        resultDiv.textContent = `Error connecting to API: ${err.message}`;
+        chartCanvas.style.display = 'none';
+    }
+}
+
+function renderHistory() {
+    const historySlider = document.getElementById('historySlider');
+    historySlider.innerHTML = '';
+
+    history.forEach((item, index) => {
+        const cat = item.category.toLowerCase();
+        const card = document.createElement('div');
+        card.className = 'ticket-card';
+        card.style.borderLeft = `5px solid ${categoryColors[cat] || '#000'}`;
+        card.innerHTML = `
+            <b>Ticket:</b> ${item.text}<br>
+            <b>Category:</b> <span class="category" style="background:${categoryColors[cat]}">${item.category}</span><br> 
+            <b>Confidence:</b> ${item.confidence}%
+        `;
+        historySlider.appendChild(card);
+
+        // Animate slide-in
+        setTimeout(() => card.classList.add('show'), 50);
+
+        // Highlight only the latest ticket
+        if (index === 0) {
+            card.classList.add('highlight');
+        }
+    });
+}
+
+function retrieveHistory() {
+    const savedHistory = JSON.parse(localStorage.getItem('ticketHistory')) || [];
+    history = savedHistory;
+    renderHistory();
+}
+
+function printHistory() {
+    const printWindow = window.open('', '', 'width=600,height=800');
+    printWindow.document.write('<h2>Ticket Classification History</h2>');
+    history.forEach(item => {
+        printWindow.document.write(`
+            <p>
+            <b>Ticket:</b> ${item.text}<br>
+            <b>Category:</b> ${item.category}<br>
+            <b>Confidence:</b> ${item.confidence}%
+            </p>
+            <hr>
+        `);
+    });
+    printWindow.document.close();
+    printWindow.print();
+}
+
+// Clear visible history only, keep saved data
+function clearHistory() {
+    history = [];
+    renderHistory();
+}
+</script>
+
+</body>
+</html>
