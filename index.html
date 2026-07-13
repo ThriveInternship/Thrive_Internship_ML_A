@@ -1,0 +1,88 @@
+    <script>
+        // Put your actual Lambda URL here!
+        const schoolSaverUrl = "https://4clxwpc6j7hnty44gxusrqvwnu0mqiwl.lambda-url.us-east-1.on.aws/";
+        const button = document.querySelector("button");
+
+        function showStatus(message, isError) {
+            const box = document.getElementById('status-box');
+            box.style.display = 'block';
+            box.className = isError ? 'error' : 'success';
+            box.innerText = message;
+            setTimeout(() => { box.style.display = 'none'; }, 10000);
+        }
+
+        function saveSchoolProfile() {
+            // 1. Get basic info
+            const schoolName = document.getElementById('school_name').value.trim();
+            const location = document.getElementById('location').value.trim();
+            
+            if (!schoolName || !location) {
+                showStatus("Please enter School Name and Location.", true);
+                return;
+            }
+
+            // 2. Collect enrollment data & calculate totals
+            const enrollmentData = {};
+            let totalMale = 0;
+            let totalFemale = 0;
+            
+            document.querySelectorAll('.enrollment-input').forEach(input => {
+                const className = input.dataset.class;
+                const gender = input.dataset.gender;
+                const value = parseInt(input.value) || 0;
+                
+                if (!enrollmentData[className]) enrollmentData[className] = { male: 0, female: 0 };
+                enrollmentData[className][gender] = value;
+                
+                if (gender === 'male') totalMale += value;
+                if (gender === 'female') totalFemale += value;
+            });
+
+            // 3. Prepare payload
+            const payload = {
+                school_name: schoolName,
+                location: location,
+                school_history: document.getElementById('school_history').value,
+                stakeholders: document.getElementById('stakeholders').value,
+                facilities: document.getElementById('facilities').value,
+                enrollment: enrollmentData,
+                total_male: totalMale,
+                total_female: totalFemale,
+                total_students: totalMale + totalFemale,
+                prof_male: parseInt(document.getElementById('prof_male').value) || 0,
+                prof_female: parseInt(document.getElementById('prof_female').value) || 0,
+                pupil_male: parseInt(document.getElementById('pupil_male').value) || 0,
+                pupil_female: parseInt(document.getElementById('pupil_female').value) || 0,
+                ns_male: parseInt(document.getElementById('ns_male').value) || 0,
+                ns_female: parseInt(document.getElementById('ns_female').value) || 0,
+                non_teach_male: parseInt(document.getElementById('non_teach_male').value) || 0,
+                non_teach_female: parseInt(document.getElementById('non_teach_female').value) || 0
+            };
+
+            // 4. Disable button and send to Lambda
+            button.disabled = true;
+            button.textContent = "Saving...";
+            showStatus("Saving school profile...", false);
+
+            fetch(schoolSaverUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+            .then(async response => {
+                if (!response.ok) throw new Error(`Server error: ${response.status}`);
+                const result = await response.json();
+                showStatus(result.message || "School profile saved successfully!", false);
+                document.getElementById("schoolForm").reset(); // Reset form
+            })
+            .catch(error => {
+                console.error(error);
+                showStatus("Error saving: " + error.message, true);
+            })
+            .finally(() => {
+                // 5. Re-enable button
+                button.disabled = false;
+                button.textContent = "Save School Profile";
+            });
+        }
+    </script>
