@@ -3,261 +3,1017 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Profile - AWEN-STS</title>
+    <title>AWEN-STS REPORT GENERATOR</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; }
         .header { background-color: #232f3e; color: white; padding: 20px; text-align: center; }
         .container { max-width: 1000px; margin: 30px auto; padding: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        h2 { color: #232f3e; border-bottom: 2px solid #ff9900; padding-bottom: 10px; }
-        label { display: block; margin-top: 15px; font-weight: bold; color: #333; }
-        input[type="text"], input[type="number"], textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        textarea { height: 100px; }
-        button { background-color: #ff9900; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 20px; }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h2 { color: #232f3e; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
+        h3 { color: #ff9900; margin-top: 25px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        button { background-color: #ff9900; color: white; border: none; padding: 12px 24px; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 10px 5px; }
         button:hover { background-color: #e68a00; }
-        .enrollment-section { background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 10px; }
-        .class-row { display: flex; gap: 10px; margin-bottom: 10px; align-items: center; }
-        .class-name { flex: 2; font-weight: bold; padding: 5px; }
-        .gender-input { flex: 1; }
-        .gender-input label { margin: 0; font-size: 12px; }
-        .gender-input input { width: 100%; }
-        #status-box { margin-top: 20px; padding: 15px; border-radius: 5px; display: none; }
+        button.secondary { background-color: #232f3e; }
+        button.large { width: 100%; margin-top: 20px; font-size: 18px; padding: 15px; }
+        input, select, textarea { padding: 10px; width: 100%; margin: 8px 0 15px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-family: Arial, sans-serif; }
+        label { font-weight: bold; font-size: 14px; color: #333; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 5px; display: none; }
         .success { background: #e2f0d9; border-left: 5px solid #4CAF50; color: #2e7d32; }
         .error { background: #fdecea; border-left: 5px solid #f44336; color: #c62828; }
-        .section-title { background: #232f3e; color: white; padding: 10px; border-radius: 5px; margin-top: 20px; }
+        .loading { background: #fff3cd; border-left: 5px solid #ffc107; color: #856404; }
+        .form-row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .form-col { flex: 1; min-width: 150px; }
+        .class-row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; background: #f9f9f9; padding: 10px; border-radius: 5px; }
+        .class-row input, .class-row select { margin: 0; flex: 1; }
+        .class-row .remove-btn { background: #f44336; padding: 10px; min-width: 40px; margin: 0; }
+        
+        #reportDisplay { margin-top: 20px; padding: 30px; background: white; border: 2px solid #232f3e; border-radius: 8px; display: none; }
+        #reportDisplay h1 { color: #232f3e; text-align: center; border-bottom: 3px solid #ff9900; padding-bottom: 15px; }
+        #reportDisplay h2 { color: #ff9900; border-bottom: 2px solid #232f3e; margin-top: 30px; }
+        #reportDisplay h3 { color: #232f3e; border-bottom: 1px solid #ccc; }
+        #reportDisplay p { line-height: 1.6; margin: 15px 0; text-align: justify; }
+        #reportDisplay ul, #reportDisplay ol { margin: 15px 0; padding-left: 30px; }
+        #reportDisplay li { margin: 8px 0; line-height: 1.5; }
+        
+        @media print {
+            .no-print { display: none !important; }
+            #reportDisplay { border: none; box-shadow: none; }
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>School Profile Form</h1>
-        <p>Chapter 2: School Information & Data</p>
+        <h1>AWEN-STS REPORT GENERATOR</h1>
+        <p>Student Teacher Dashboard with GPS Attendance Tracking</p>
     </div>
 
     <div class="container">
-        <form id="schoolForm">
-            <!-- Basic Information -->
-            <div class="card">
-                <h2>Basic School Information</h2>
-                <label>School Name:</label>
-                <input type="text" id="school_name" placeholder="e.g., Merry Children Primary School" required>
-                
-                <label>Location:</label>
-                <input type="text" id="location" placeholder="e.g., Accra, Kumasi, Tamale" required>
+        <!-- My Profile Section -->
+        <div class="card no-print">
+            <h2>My Profile (QR Status)</h2>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Student ID</label>
+                    <input type="text" id="studentIdInput" placeholder="e.g., esayat88">
+                </div>
+                <div class="form-col">
+                    <label>Admin Password (Required for Admin)</label>
+                    <input type="password" id="adminPasswordInput" placeholder="Enter password if Admin">
+                </div>
+                <div class="form-col">
+                    <label>Semester</label>
+                    <select id="semesterSelect">
+                        <option value="1">Year One, Semester 1: STS: Beginning Teaching 1</option>
+                        <option value="2">Year One, Semester 2: STS: Beginning Teaching 2</option>
+                        <option value="3">Year Two, Semester 1: STS: Developing Teaching 1</option>
+                        <option value="4">Year Two, Semester 2: STS: Developing Teaching 2</option>
+                        <option value="5">Year Three, Semester 1: STS: Embedding Teaching 1</option>
+                        <option value="6">Year Three, Semester 2: STS: Embedding Teaching 2</option>
+                        <option value="7">Year Four, Semester 1: STS: Extending Teaching (Internship)</option>
+                        <option value="8">Year Four, Semester 2: STS: Extending Teaching II</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="checkStudentStatus()">Check My Status</button>
+            <div id="profileResult" class="result"></div>
+        </div>
+
+        <!-- Admin Section -->
+        <div class="card no-print" id="adminSection" style="display:none; border: 2px solid #ff9900;">
+            <h2>👑 Administrator Dashboard</h2>
+            
+            <!-- Part 1: QR Code Generator -->
+            <h3>📱 Generate Student QR Code</h3>
+            <div class="form-row">
+                <div class="form-col">
+                    <input type="text" id="qrStudentId" placeholder="Enter Student ID to generate QR">
+                </div>
+                <div class="form-col">
+                    <button onclick="generateQRCode()">Generate QR Code</button>
+                </div>
+            </div>
+            <div id="qrDisplay" style="margin-top: 20px; text-align: center; display: none;">
+                <div id="qrcode" style="display: inline-block; padding: 20px; background: white; border: 2px solid #232f3e;"></div>
+                <br>
+                <button onclick="downloadQR()" style="margin-top: 15px; background-color: #28a745;">💾 Download QR Code</button>
             </div>
 
-            <!-- School Profile Details -->
-            <div class="card">
-                <h2>School Profile Details</h2>
-                
-                <label>School History:</label>
-                <textarea id="school_history" placeholder="Describe the history of the school, when it was established, founder, etc."></textarea>
-                
-                <label>Stakeholders (SMC, PTA, etc.):</label>
-                <textarea id="stakeholders" placeholder="List the stakeholders involved in the school (School Management Committee, PTA, Church, etc.)"></textarea>
-                
-                <label>School Facilities:</label>
-                <textarea id="facilities" placeholder="List available facilities (Library, ICT Lab, Science Lab, Sports Field, etc.)"></textarea>
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
+
+            <!-- Part 2: Student Enrollment Form -->
+            <h3>📝 Enroll New Student</h3>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Student ID (Login Name) *</label>
+                    <input type="text" id="enrollId" placeholder="e.g. Ama Baba">
+                </div>
+                <div class="form-col">
+                    <label>Full Name *</label>
+                    <input type="text" id="enrollName" placeholder="e.g. Ama Baba">
+                </div>
             </div>
-
-            <!-- Enrollment Breakdown -->
-            <div class="card">
-                <div class="section-title">Student Enrollment by Class and Gender</div>
-                <p style="margin-top: 10px;">Enter the number of male and female students in each class:</p>
-                
-                <div class="enrollment-section" id="enrollmentContainer">
-                    <!-- Early Grade (Creche, Nursery, KG) -->
-                    <h3 style="margin-top: 20px; color: #232f3e;">Early Grade</h3>
-                    <div class="class-row">
-                        <div class="class-name">Creche</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="creche" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="creche" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Nursery 1</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="nursery_1" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="nursery_1" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Nursery 2</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="nursery_2" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="nursery_2" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">KG 1</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="kg_1" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="kg_1" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">KG 2</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="kg_2" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="kg_2" data-gender="female" min="0" value="0"></div>
-                    </div>
-
-                    <!-- Basic School (1-6) -->
-                    <h3 style="margin-top: 20px; color: #232f3e;">Basic School (Primary)</h3>
-                    <div class="class-row">
-                        <div class="class-name">Basic 1</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="basic_1" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="basic_1" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Basic 2</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="basic_2" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="basic_2" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Basic 3</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="basic_3" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="basic_3" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Basic 4</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="basic_4" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="basic_4" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Basic 5</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="basic_5" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="basic_5" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Basic 6</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="basic_6" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="basic_6" data-gender="female" min="0" value="0"></div>
-                    </div>
-
-                    <!-- Junior High School (7-9) -->
-                    <h3 style="margin-top: 20px; color: #232f3e;">Junior High School</h3>
-                    <div class="class-row">
-                        <div class="class-name">Basic 7 (JHS 1)</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="jhs_1" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="jhs_1" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Basic 8 (JHS 2)</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="jhs_2" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="jhs_2" data-gender="female" min="0" value="0"></div>
-                    </div>
-                    <div class="class-row">
-                        <div class="class-name">Basic 9 (JHS 3)</div>
-                        <div class="gender-input"><label>Male:</label><input type="number" class="enrollment-input" data-class="jhs_3" data-gender="male" min="0" value="0"></div>
-                        <div class="gender-input"><label>Female:</label><input type="number" class="enrollment-input" data-class="jhs_3" data-gender="female" min="0" value="0"></div>
-                    </div>
+            
+            <div class="form-row">
+                <div class="form-col">
+                    <label>College/University Attending *</label>
+                    <input type="text" id="enrollCollege" placeholder="e.g. University of Cape Coast" required>
+                </div>
+                <div class="form-col">
+                    <label>Practice School (STS Placement) *</label>
+                    <input type="text" id="enrollSchool" placeholder="e.g. St. Mary's JHS" required>
                 </div>
             </div>
 
-            <!-- Staff Details -->
-            <div class="card">
-                <div class="section-title">Staff Information (by Gender)</div>
-                <p style="margin-top: 10px;">Enter the number of staff in each category:</p>
-                
-                <h3 style="margin-top: 20px; color: #232f3e;">Professional Teachers</h3>
-                <div class="class-row">
-                    <div class="gender-input"><label>Male:</label><input type="number" id="prof_male" min="0" value="0"></div>
-                    <div class="gender-input"><label>Female:</label><input type="number" id="prof_female" min="0" value="0"></div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Current Semester</label>
+                    <select id="enrollSemester">
+                        <option value="1">Year One, Semester 1</option>
+                        <option value="2">Year One, Semester 2</option>
+                        <option value="3">Year Two, Semester 1</option>
+                        <option value="4">Year Two, Semester 2</option>
+                        <option value="5">Year Three, Semester 1</option>
+                        <option value="6">Year Three, Semester 2</option>
+                        <option value="7">Year Four, Semester 1 (Internship)</option>
+                        <option value="8">Year Four, Semester 2</option>
+                    </select>
                 </div>
-
-                <h3 style="margin-top: 20px; color: #232f3e;">Pupil Teachers</h3>
-                <div class="class-row">
-                    <div class="gender-input"><label>Male:</label><input type="number" id="pupil_male" min="0" value="0"></div>
-                    <div class="gender-input"><label>Female:</label><input type="number" id="pupil_female" min="0" value="0"></div>
+                <div class="form-col">
+                    <label>Year Level</label>
+                    <select id="enrollYear">
+                        <option value="Year 1">Year 1</option>
+                        <option value="Year 2">Year 2</option>
+                        <option value="Year 3">Year 3</option>
+                        <option value="Year 4">Year 4</option>
+                    </select>
                 </div>
-
-                <h3 style="margin-top: 20px; color: #232f3e;">National Service Teachers</h3>
-                <div class="class-row">
-                    <div class="gender-input"><label>Male:</label><input type="number" id="ns_male" min="0" value="0"></div>
-                    <div class="gender-input"><label>Female:</label><input type="number" id="ns_female" min="0" value="0"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Weekly Visit Day</label>
+                    <select id="enrollVisitDay">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                    </select>
                 </div>
+                <div class="form-col">
+                    <label>Expiry Date</label>
+                    <input type="date" id="enrollExpiry" value="2026-12-31">
+                </div>
+            </div>
+            <button onclick="enrollStudent()" style="background-color: #232f3e; width: 100%;">💾 Enroll Student into System</button>
+            <div id="enrollResult" class="result" style="margin-top: 15px;"></div>
 
-                <h3 style="margin-top: 20px; color: #232f3e;">Non-Teaching Staff</h3>
-                <div class="class-row">
-                    <div class="gender-input"><label>Male:</label><input type="number" id="non_teach_male" min="0" value="0"></div>
-                    <div class="gender-input"><label>Female:</label><input type="number" id="non_teach_female" min="0" value="0"></div>
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
+
+            <!-- Part 3: Register School GPS -->
+            <h3>📍 Register Practice School GPS</h3>
+            <p style="color: #666; font-size: 14px;">Visit the school physically, click "Capture GPS", then save.</p>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>School ID (Must match student's assigned school)</label>
+                    <input type="text" id="regSchoolId" placeholder="e.g., St. Mary's JHS">
+                </div>
+                <div class="form-col">
+                    <label>School Full Name</label>
+                    <input type="text" id="regSchoolName" placeholder="e.g., St. Mary's Junior High School">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Latitude</label>
+                    <input type="number" step="any" id="regLat" placeholder="Auto-filled">
+                </div>
+                <div class="form-col">
+                    <label>Longitude</label>
+                    <input type="number" step="any" id="regLong" placeholder="Auto-filled">
+                </div>
+            </div>
+            <button onclick="captureGPS()" style="background:#17a2b8; width:100%;"> Capture My Current GPS (Do this at the school)</button>
+            <button onclick="saveSchoolGPS()" style="background:#232f3e; width:100%; margin-top:10px;">💾 Save School to Registry</button>
+            <div id="regResult" class="result" style="margin-top:15px;"></div>
+
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
+
+            <!-- Part 4: Register New Coordinator -->
+            <h3>👨‍🏫 Register New Coordinator</h3>
+            <p>Create coordinator account to monitor students from a specific college (valid for 1 year)</p>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Coordinator ID</label>
+                    <input type="text" id="coordId" placeholder="e.g., coord_ucc">
+                </div>
+                <div class="form-col">
+                    <label>Password</label>
+                    <input type="password" id="coordPassword" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>College/University *</label>
+                    <input type="text" id="coordCollege" placeholder="e.g., University of Cape Coast" required>
+                </div>
+            </div>
+            <button onclick="registerCoordinator()" style="background: #17a2b8; width:100%;">Register Coordinator</button>
+            <div id="coordResult" class="result" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- School Profile Section -->
+        <div class="card no-print" id="schoolProfileSection" style="display:none;">
+            <h2>Comprehensive School Profile</h2>
+            <h3>1. Basic Information</h3>
+            <input type="text" id="school_name" placeholder="School Name" required>
+            <input type="text" id="school_location" placeholder="Location (Town, District, Region)" required>
+            <select id="school_type">
+                <option value="Basic School (Creche to JHS)">Basic School (Creche to JHS)</option>
+                <option value="Primary School Only">Primary School Only</option>
+                <option value="JHS Only">JHS Only</option>
+            </select>
+            <textarea id="school_history" rows="3" placeholder="Brief History of the School"></textarea>
+            <textarea id="mission_statement" rows="2" placeholder="Mission Statement"></textarea>
+            <textarea id="vision_statement" rows="2" placeholder="Vision Statement"></textarea>
+            <textarea id="core_values" rows="2" placeholder="Core Values (comma separated)"></textarea>
+            <textarea id="school_facilities" rows="3" placeholder="List of School Facilities"></textarea>
+
+            <h3>2. Teaching Staff Breakdown</h3>
+            <div class="form-row">
+                <div class="form-col"><label>Male Professional</label><input type="number" id="ts_male_prof" value="0"></div>
+                <div class="form-col"><label>Female Professional</label><input type="number" id="ts_female_prof" value="0"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-col"><label>Male Pupil Teachers</label><input type="number" id="ts_male_pupil" value="0"></div>
+                <div class="form-col"><label>Female Pupil Teachers</label><input type="number" id="ts_female_pupil" value="0"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-col"><label>Male Nat. Service</label><input type="number" id="ts_male_ns" value="0"></div>
+                <div class="form-col"><label>Female Nat. Service</label><input type="number" id="ts_female_ns" value="0"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-col"><label>Non-Teaching Staff (Total)</label><input type="number" id="non_teaching" value="0"></div>
+            </div>
+
+            <h3>3. Student Enrollment (By Class & Gender)</h3>
+            <div id="enrollmentContainer"></div>
+            <button type="button" class="secondary" onclick="addClassRow()">+ Add Another Class/Stream</button>
+
+            <h3>4. School Governance & Philosophy</h3>
+            <textarea id="stakeholders" rows="3" placeholder="Key Stakeholders (e.g., PTA, SMC, Traditional Council, GES)"></textarea>
+            <textarea id="class_rules" rows="4" placeholder="List of School/Class Rules and Regulations"></textarea>
+            <textarea id="teaching_philosophy" rows="4" placeholder="Your Personal Teaching Philosophy as a Trainee"></textarea>
+
+            <button type="button" onclick="saveSchoolProfile()" class="large">💾 Save School Profile</button>
+            <div id="schoolSaveStatus" class="result"></div>
+        </div>
+
+        <!-- Daily SRJ Log Section with GPS Attendance -->
+        <div class="card no-print" id="srjSection" style="display:none;">
+            <h2>Daily SRJ Log & GPS Attendance</h2>
+            
+            <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #2196F3;">
+                <h3 style="margin-top: 0; color: #1976D2;"> Daily Attendance Verification</h3>
+                <p>Click Check-In when you arrive at school (8 AM) and Check-Out when you leave (1 PM). GPS location will be verified.</p>
+                <div class="form-row">
+                    <button onclick="verifyAttendance('check_in')" style="background:#28a745; flex:1; font-size: 16px; padding: 15px;">✅ CHECK IN (8 AM)</button>
+                    <button onclick="verifyAttendance('check_out')" style="background:#dc3545; flex:1; font-size: 16px; padding: 15px;"> CHECK OUT (1 PM)</button>
+                </div>
+                <div id="attendanceResult" class="result" style="margin-top:15px;"></div>
+            </div>
+
+            <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107;">
+                <h3 style="margin-top: 0; color: #856404;">📸 11 AM Attendance Photo</h3>
+                <p>At 10:30 AM to 12:00 PM, capture a selfie to confirm your presence at school.</p>
+                <button onclick="captureAttendancePhoto()" id="photoBtn" style="background: #ffc107; width: 100%; font-size: 18px; padding: 15px;">
+                    📷 Capture Attendance Photo (10:30 AM - 12:00 PM)
+                </button>
+                <div id="photoResult" class="result" style="margin-top: 15px;"></div>
+                <video id="camera" style="display: none; width: 100%; max-width: 400px; margin-top: 10px;" autoplay></video>
+                <canvas id="canvas" style="display: none;"></canvas>
+            </div>
+
+            <div class="form-row">
+                <div class="form-col"><label>Week (1-6)</label><input type="number" id="weekNumber" min="1" max="6" value="1"></div>
+                <div class="form-col"><label>Day (1-5)</label><input type="number" id="dayNumber" min="1" max="5" value="1"></div>
+            </div>
+            
+            <h3>📚 Today's Class Observation</h3>
+            <div class="form-row">
+                <div class="form-col">
+                    <label>Class Observed</label>
+                    <input type="text" id="obsClass" placeholder="e.g., Primary 4A">
+                </div>
+                <div class="form-col">
+                    <label>Subject Taught</label>
+                    <input type="text" id="obsSubject" placeholder="e.g., Mathematics">
+                </div>
+                <div class="form-col">
+                    <label>Teacher's Name</label>
+                    <input type="text" id="obsTeacher" placeholder="e.g., Mr. Johnson">
                 </div>
             </div>
 
-            <button type="button" onclick="saveSchoolProfile()">Save School Profile</button>
-        </form>
+            <button onclick="generateDailySRJ()" style="width: 100%;">Generate Daily SRJ Questions</button>
+            <div id="srjResult" class="result"></div>
+        </div>
 
-        <div id="status-box"></div>
+        <!-- Generate Final Report Section -->
+        <div class="card no-print" id="reportSection" style="display:none;">
+            <h2> Generate Final Internship Report</h2>
+            <p>Click the button below to generate your comprehensive 5-Chapter internship report.</p>
+            <button onclick="generateFinalReport()" class="large" style="background-color: #28a745; font-size: 20px;">📄 Generate Complete Report</button>
+            <div id="reportStatus" class="result"></div>
+        </div>
+
+        <!-- Report Display Section -->
+        <div id="reportDisplay">
+            <div class="no-print" style="text-align: right; margin-bottom: 20px;">
+                <button onclick="window.print()" style="background: #232f3e;">🖨️ Print Report</button>
+                <button onclick="downloadReport()" style="background: #28a745;">💾 Download as HTML</button>
+                <button onclick="document.getElementById('reportDisplay').style.display='none'" style="background: #f44336;">Close</button>
+            </div>
+            <div id="reportContent"></div>
+        </div>
     </div>
 
     <script>
-        const schoolSaverUrl = "https://4clxwpc6j7hnty44gxusrqvwnu0mqiwl.lambda-url.us-east-1.on.aws/";
+        // ==========================================
+        // LAMBDA FUNCTION URLs - DIRECT ACCESS
+        // ==========================================
+        const CHECK_STATUS_URL = 'https://3erbngd2ne5pcg2vcjrzb2hrjq0bnjhn.lambda-url.us-east-1.on.aws/';
+        const GENERATE_SRJ_URL = 'https://fwe3c5khbsp6tdsurvvfsefme40aevnx.lambda-url.us-east-1.on.aws/';
+        const SAVE_LOG_URL = 'https://3n6sennmgib2fc24fz3ynbm5u40zekrs.lambda-url.us-east-1.on.aws/';
+        const SAVE_SCHOOL_URL = 'https://4clxwpc6j7hnty44gxusrqvwnu0mqiwl.lambda-url.us-east-1.on.aws/';
+        const GENERATE_REPORT_URL = 'https://c746jcx5oxzbwwdct2xmsfy5540cfafy.lambda-url.us-east-1.on.aws/';
+        const ENROLLMENT_LAMBDA_URL = 'https://26xhf3qx3z3r4boqpjpbsv3nsm0tfojd.lambda-url.us-east-1.on.aws/';
+        const REGISTER_SCHOOL_GPS_URL = 'https://og76mgg7ocnuzlemfeos46xrl40amnwm.lambda-url.us-east-1.on.aws/';
+        const VERIFY_ATTENDANCE_URL = 'https://eaifacskg2gwtb6m4b6dxleet40caflp.lambda-url.us-east-1.on.aws/';
+        const GET_ATTENDANCE_DASHBOARD_URL = 'https://jqlkrpwgldev5fcbyh5llrkuzu0wrnbb.lambda-url.us-east-1.on.aws/';
+        const REGISTER_COORDINATOR_URL = 'https://7su73m5h6ivzc7ktlluzjxsyku0fepzv.lambda-url.us-east-1.on.aws/';
+        const COORDINATOR_LOGIN_URL = 'https://gzduysxv7ddbaklpe7b3wdwl7i0jgshn.lambda-url.us-east-1.on.aws/';
+        const CAPTURE_ATTENDANCE_PHOTO_URL = 'https://6dfe6z75yohubbexchkohxs3ca0cerpc.lambda-url.us-east-1.on.aws/';
+        const GET_COORDINATOR_DASHBOARD_URL = 'https://rb2wxcvtgxemegalw7vxqqw5qm0ggzbf.lambda-url.us-east-1.on.aws/';
 
-        function showStatus(message, isError) {
-            const box = document.getElementById('status-box');
-            box.style.display = 'block';
-            box.className = isError ? 'error' : 'success';
-            box.innerText = message;
-            setTimeout(() => { box.style.display = 'none'; }, 10000);
+        // ADMIN ID is set to esayat88
+        const ADMIN_ID = 'esayat88';
+        const ADMIN_PASSWORD = 'esayat88'; // The only password that grants admin access
+        
+        let currentStudentId = null;
+        let currentQRCode = null;
+
+        const defaultClasses = ["Creche", "Nursery 1", "Nursery 2", "KG 1", "KG 2", "Basic 1", "Basic 2", "Basic 3", "Basic 4", "Basic 5", "Basic 6", "Basic 7 (JHS 1)", "Basic 8 (JHS 2)", "Basic 9 (JHS 3)"];
+
+        function addClassRow(className = "", stream = "None", male = 0, female = 0) {
+            const container = document.getElementById('enrollmentContainer');
+            const div = document.createElement('div');
+            div.className = 'class-row';
+            div.innerHTML = `
+                <input type="text" placeholder="Class Name" class="cls-name" value="${className}">
+                <select class="cls-stream">
+                    <option value="None" ${stream === 'None' ? 'selected' : ''}>No Stream</option>
+                    <option value="A" ${stream === 'A' ? 'selected' : ''}>Stream A</option>
+                    <option value="B" ${stream === 'B' ? 'selected' : ''}>Stream B</option>
+                    <option value="C" ${stream === 'C' ? 'selected' : ''}>Stream C</option>
+                </select>
+                <input type="number" placeholder="Male" class="cls-male" value="${male}" min="0">
+                <input type="number" placeholder="Female" class="cls-female" value="${female}" min="0">
+                <button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button>
+            `;
+            container.appendChild(div);
         }
 
-        function saveSchoolProfile() {
-            // Get basic info
-            const schoolName = document.getElementById('school_name').value;
-            const location = document.getElementById('location').value;
+        window.onload = function() { defaultClasses.forEach(cls => addClassRow(cls)); };
+
+        async function checkStudentStatus() {
+            const studentId = document.getElementById('studentIdInput').value;
+            const password = document.getElementById('adminPasswordInput').value;
+            const semester = document.getElementById('semesterSelect').value;
+            const resultBox = document.getElementById('profileResult');
             
-            if (!schoolName || !location) {
-                showStatus("Please fill in School Name and Location!", true);
+            if (!studentId) { alert('Please enter Student ID'); return; }
+
+            resultBox.style.display = 'block';
+            resultBox.className = 'result loading';
+            resultBox.innerHTML = '<p>⏳ Checking...</p>';
+
+            try {
+                const response = await fetch(CHECK_STATUS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ student_id: studentId, semester: semester })
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    currentStudentId = studentId;
+                    resultBox.className = 'result success';
+                    resultBox.innerHTML = `<h3>✅ ${data.message}</h3><p>Name: ${data.student_name} | School: ${data.school_id} | Semester: ${semester}</p>`;
+                    
+                    // Show standard sections
+                    document.getElementById('schoolProfileSection').style.display = 'block';
+                    document.getElementById('srjSection').style.display = 'block';
+                    document.getElementById('reportSection').style.display = 'block';
+                    
+                    // ADMIN SECURITY CHECK
+                    if (currentStudentId === ADMIN_ID) {
+                        if (password === ADMIN_PASSWORD) {
+                            document.getElementById('adminSection').style.display = 'block';
+                        } else {
+                            document.getElementById('adminSection').style.display = 'none';
+                            alert('⚠️ Incorrect Admin Password. Administrator dashboard access denied.');
+                        }
+                    } else {
+                        document.getElementById('adminSection').style.display = 'none';
+                    }
+                } else {
+                    resultBox.className = 'result error';
+                    resultBox.innerHTML = `<h3>❌ ${data.message}</h3>`;
+                    document.getElementById('adminSection').style.display = 'none';
+                }
+            } catch (error) {
+                resultBox.className = 'result error';
+                resultBox.innerHTML = `<h3>🔌 Error</h3><p>${error.message}</p>`;
+                document.getElementById('adminSection').style.display = 'none';
+            }
+        }
+
+        function generateQRCode() {
+            const studentId = document.getElementById('qrStudentId').value;
+            const qrDisplay = document.getElementById('qrDisplay');
+            const qrcodeContainer = document.getElementById('qrcode');
+            if (!studentId) { alert('Please enter a Student ID'); return; }
+            qrcodeContainer.innerHTML = '';
+            currentQRCode = new QRCode(qrcodeContainer, { text: studentId, width: 256, height: 256, colorDark: '#232f3e', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.H });
+            qrDisplay.style.display = 'block';
+        }
+
+        function downloadQR() {
+            const canvas = document.querySelector('#qrcode canvas');
+            if (canvas) {
+                const link = document.createElement('a');
+                link.download = `QR_Code_${document.getElementById('qrStudentId').value.replace(/\s+/g, '_')}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            }
+        }
+
+        async function saveSchoolProfile() {
+            if (!currentStudentId) { alert('Check status first!'); return; }
+            const statusDiv = document.getElementById('schoolSaveStatus');
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'result loading';
+            statusDiv.innerHTML = '<p>⏳ Saving comprehensive profile...</p>';
+
+            const teaching_staff = {
+                male_professional: document.getElementById('ts_male_prof').value,
+                female_professional: document.getElementById('ts_female_prof').value,
+                male_pupil: document.getElementById('ts_male_pupil').value,
+                female_pupil: document.getElementById('ts_female_pupil').value,
+                male_ns: document.getElementById('ts_male_ns').value,
+                female_ns: document.getElementById('ts_female_ns').value
+            };
+
+            const enrollment = [];
+            document.querySelectorAll('.class-row').forEach(row => {
+                const name = row.querySelector('.cls-name').value;
+                const stream = row.querySelector('.cls-stream').value;
+                const male = parseInt(row.querySelector('.cls-male').value) || 0;
+                const female = parseInt(row.querySelector('.cls-female').value) || 0;
+                if (name) {
+                    const className = stream === 'None' ? name : `${name} ${stream}`;
+                    enrollment.push({ class_name: className, male: male, female: female });
+                }
+            });
+
+            const payload = {
+                student_id: currentStudentId,
+                school_name: document.getElementById('school_name').value,
+                school_location: document.getElementById('school_location').value,
+                school_type: document.getElementById('school_type').value,
+                school_history: document.getElementById('school_history').value,
+                mission_statement: document.getElementById('mission_statement').value,
+                vision_statement: document.getElementById('vision_statement').value,
+                core_values: document.getElementById('core_values').value,
+                school_facilities: document.getElementById('school_facilities').value,
+                teaching_staff: teaching_staff,
+                non_teaching_staff: document.getElementById('non_teaching').value,
+                student_enrollment: enrollment,
+                stakeholders: document.getElementById('stakeholders').value,
+                class_rules: document.getElementById('class_rules').value,
+                teaching_philosophy: document.getElementById('teaching_philosophy').value
+            };
+
+            try {
+                const response = await fetch(SAVE_SCHOOL_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    statusDiv.className = 'result success';
+                    statusDiv.innerHTML = `<h3>✅ Saved!</h3><p>Total Students: ${result.total_students} | Teachers: ${result.total_teachers} | Ratio: 1:${result.ratio}</p>`;
+                    alert('School Profile saved successfully!');
+                } else {
+                    statusDiv.className = 'result error';
+                    statusDiv.innerHTML = `<h3>❌ Error</h3><p>${result.error}</p>`;
+                }
+            } catch (error) {
+                statusDiv.className = 'result error';
+                statusDiv.innerHTML = `<h3> Error</h3><p>${error.message}</p>`;
+            }
+        }
+
+        async function generateDailySRJ() {
+            if (!currentStudentId) { alert('Check status first!'); return; }
+            const week = document.getElementById('weekNumber').value;
+            const day = document.getElementById('dayNumber').value;
+            const semester = document.getElementById('semesterSelect').value;
+            const resultBox = document.getElementById('srjResult');
+            
+            resultBox.style.display = 'block';
+            resultBox.className = 'result loading';
+            resultBox.innerHTML = `<p>🤖 Generating unique questions for Sem ${semester}, Week ${week}, Day ${day}...</p>`;
+
+            try {
+                const response = await fetch(GENERATE_SRJ_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ student_id: currentStudentId, week: parseInt(week), day: parseInt(day), semester: parseInt(semester) })
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultBox.className = 'result success';
+                    let html = `<h3>📚 Semester ${semester} | Week ${week}, Day ${day}</h3>`;
+                    html += `<div class="srj-item"><h4>📝 Reflective Questions:</h4>`;
+                    if (Array.isArray(data.srj_questions)) {
+                        data.srj_questions.forEach((q, i) => {
+                            html += `<div class="srj-question" style="margin-top:10px; font-weight:bold;">${i+1}. ${q}</div>`;
+                            html += `<textarea id="srj-ans-${i}" rows="3" placeholder="Your Answer..." style="width:100%; margin-bottom:10px;"></textarea>`;
+                        });
+                    }
+                    html += `</div>`;
+                    html += `<div class="srj-item"><h4>✅ Observation Checklist:</h4>`;
+                    if (Array.isArray(data.checklist)) {
+                        data.checklist.forEach((item, i) => {
+                            html += `<div><input type="checkbox" id="chk-${i}"> ${item}</div>`;
+                        });
+                    }
+                    html += `</div>`;
+                    html += `<button onclick="saveDailyLog(${week}, ${day})" style="background:#28a745; width:100%; font-size:18px;">💾 Save Daily Log & Observation</button><div id="logStatus"></div>`;
+                    resultBox.innerHTML = html;
+                } else {
+                    resultBox.className = 'result error';
+                    resultBox.innerHTML = `<h3>❌ Error</h3><p>${data.error}</p>`;
+                }
+            } catch (error) {
+                resultBox.className = 'result error';
+                resultBox.innerHTML = `<h3>🔌 Error</h3><p>${error.message}</p>`;
+            }
+        }
+
+        async function saveDailyLog(week, day) {
+            const srjAnswers = [];
+            for(let i=0; i<3; i++) {
+                const ans = document.getElementById(`srj-ans-${i}`);
+                if(ans && ans.value) srjAnswers.push({q: i+1, answer: ans.value});
+            }
+            const checklist = [];
+            for(let i=0; i<4; i++) {
+                const chk = document.getElementById(`chk-${i}`);
+                if(chk) checklist.push({item: chk.nextSibling.textContent, done: chk.checked});
+            }
+            const observation = {
+                class_observed: document.getElementById('obsClass').value,
+                subject_taught: document.getElementById('obsSubject').value,
+                teacher_name: document.getElementById('obsTeacher').value
+            };
+
+            const statusDiv = document.getElementById('logStatus');
+            statusDiv.innerHTML = 'Saving...';
+            
+            try {
+                const res = await fetch(SAVE_LOG_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ student_id: currentStudentId, week: week, day: day, observation: observation, srj_answers: srjAnswers, checklist: checklist })
+                });
+                const result = await res.json();
+                if(res.ok) {
+                    statusDiv.innerHTML = '<span style="color:green; font-weight:bold; font-size:16px;">✅ Daily Log & Observation Saved Successfully!</span>';
+                    alert('Saved!');
+                } else {
+                    statusDiv.innerHTML = '<span style="color:red">Error</span>';
+                }
+            } catch(e) {
+                statusDiv.innerHTML = '<span style="color:red">Connection Error</span>';
+            }
+        }
+
+        async function generateFinalReport() {
+            if (!currentStudentId) { alert('Check status first!'); return; }
+            const statusDiv = document.getElementById('reportStatus');
+            const reportDisplay = document.getElementById('reportDisplay');
+            const reportContent = document.getElementById('reportContent');
+            
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'result loading';
+            statusDiv.innerHTML = '<h3>🤖 Generating your comprehensive report...</h3><p>Please wait...</p>';
+            
+            try {
+                const response = await fetch(GENERATE_REPORT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ student_id: currentStudentId })
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    statusDiv.className = 'result success';
+                    statusDiv.innerHTML = '<h3>✅ Report Generated Successfully!</h3>';
+                    reportContent.innerHTML = data.report_html;
+                    reportDisplay.style.display = 'block';
+                    reportDisplay.scrollIntoView({ behavior: 'smooth' });
+                    alert('Your report is ready!');
+                } else {
+                    statusDiv.className = 'result error';
+                    statusDiv.innerHTML = `<h3>❌ Error</h3><p>${data.error}</p>`;
+                }
+            } catch (error) {
+                statusDiv.className = 'result error';
+                statusDiv.innerHTML = `<h3>🔌 Connection Error</h3><p>${error.message}</p>`;
+            }
+        }
+
+        function downloadReport() {
+            const reportContent = document.getElementById('reportContent').innerHTML;
+            const studentName = currentStudentId.replace(/\s+/g, '_');
+            const timestamp = new Date().toISOString().split('T')[0];
+            const htmlContent = `<!DOCTYPE html><html><head><title>Internship Report - ${currentStudentId}</title><style>body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; } h1 { color: #232f3e; text-align: center; border-bottom: 3px solid #ff9900; padding-bottom: 15px; } h2 { color: #ff9900; border-bottom: 2px solid #232f3e; margin-top: 30px; } h3 { color: #232f3e; border-bottom: 1px solid #ccc; } p { text-align: justify; margin: 15px 0; } ul, ol { margin: 15px 0; padding-left: 30px; } li { margin: 8px 0; } table { width: 100%; border-collapse: collapse; margin: 15px 0; } td, th { border: 1px solid #ddd; padding: 10px; }</style></head><body>${reportContent}</body></html>`;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Internship_Report_${studentName}_${timestamp}.html`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        async function enrollStudent() {
+            const studentData = {
+                admin_id: ADMIN_ID,
+                student_id: document.getElementById('enrollId').value,
+                student_name: document.getElementById('enrollName').value,
+                college: document.getElementById('enrollCollege').value,
+                school_id: document.getElementById('enrollSchool').value,
+                semester: document.getElementById('enrollSemester').value,
+                year: document.getElementById('enrollYear').value,
+                visit_day: document.getElementById('enrollVisitDay').value,
+                expiry_date: document.getElementById('enrollExpiry').value
+            };
+
+            if (!studentData.student_id || !studentData.student_name || !studentData.college || !studentData.school_id) {
+                alert('Please fill in Student ID, Name, College, and Practice School!');
                 return;
             }
 
-            // Collect enrollment data
-            const enrollmentData = {};
-            const enrollmentInputs = document.querySelectorAll('.enrollment-input');
-            
-            enrollmentInputs.forEach(input => {
-                const className = input.dataset.class;
-                const gender = input.dataset.gender;
-                const value = parseInt(input.value) || 0;
-                
-                if (!enrollmentData[className]) {
-                    enrollmentData[className] = { male: 0, female: 0 };
-                }
-                enrollmentData[className][gender] = value;
-            });
+            const resultDiv = document.getElementById('enrollResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result loading';
+            resultDiv.innerHTML = '<p>⏳ Enrolling student...</p>';
 
-            // Prepare payload
-            const payload = {
-                school_name: schoolName,
-                location: location,
-                school_history: document.getElementById('school_history').value,
-                stakeholders: document.getElementById('stakeholders').value,
-                facilities: document.getElementById('facilities').value,
-                enrollment: enrollmentData,
-                prof_male: parseInt(document.getElementById('prof_male').value) || 0,
-                prof_female: parseInt(document.getElementById('prof_female').value) || 0,
-                pupil_male: parseInt(document.getElementById('pupil_male').value) || 0,
-                pupil_female: parseInt(document.getElementById('pupil_female').value) || 0,
-                ns_male: parseInt(document.getElementById('ns_male').value) || 0,
-                ns_female: parseInt(document.getElementById('ns_female').value) || 0,
-                non_teach_male: parseInt(document.getElementById('non_teach_male').value) || 0,
-                non_teach_female: parseInt(document.getElementById('non_teach_female').value) || 0
+            try {
+                const response = await fetch(ENROLLMENT_LAMBDA_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(studentData)
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `<strong>✅ Success!</strong> ${result.message}`;
+                    document.getElementById('enrollId').value = '';
+                    document.getElementById('enrollName').value = '';
+                    document.getElementById('enrollCollege').value = '';
+                    document.getElementById('enrollSchool').value = '';
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `<strong>❌ Error:</strong> ${result.error}`;
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `<strong>🔌 Connection Error:</strong> ${error.message}`;
+            }
+        }
+
+        async function registerCoordinator() {
+            const data = {
+                admin_id: ADMIN_ID,
+                coordinator_id: document.getElementById('coordId').value,
+                password: document.getElementById('coordPassword').value,
+                college: document.getElementById('coordCollege').value
             };
 
-            console.log('Sending payload:', payload);
-            showStatus("Saving school profile...", false);
+            if (!data.coordinator_id || !data.password || !data.college) {
+                alert('Please fill in Coordinator ID, Password, and College!');
+                return;
+            }
 
-            // Send to Lambda
-            fetch(schoolSaverUrl, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json'
+            const resultDiv = document.getElementById('coordResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result loading';
+            resultDiv.innerHTML = '<p>Registering coordinator...</p>';
+
+            try {
+                const response = await fetch(REGISTER_COORDINATOR_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+
+                const responseText = await response.text();
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (e) {
+                    throw new Error('Invalid response from server');
+                }
+                
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `<strong>✅ Success!</strong> ${result.message}<br>Expiry: ${result.expiry_date}`;
+                    
+                    document.getElementById('coordId').value = '';
+                    document.getElementById('coordPassword').value = '';
+                    document.getElementById('coordCollege').value = '';
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `<strong>❌ Error:</strong> ${result.error || 'Unknown error'}`;
+                }
+                
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `<strong>❌ Connection Error:</strong> ${error.message}<br><small>Check browser console (F12) for details.</small>`;
+            }
+        }
+
+        function captureGPS() {
+            const statusDiv = document.getElementById('regResult');
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'result loading';
+            statusDiv.innerHTML = '<p>📡 Acquiring satellite signal...</p>';
+
+            if (!navigator.geolocation) {
+                statusDiv.className = 'result error';
+                statusDiv.innerHTML = 'Geolocation not supported by your browser.';
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    document.getElementById('regLat').value = position.coords.latitude.toFixed(6);
+                    document.getElementById('regLong').value = position.coords.longitude.toFixed(6);
+                    statusDiv.className = 'result success';
+                    statusDiv.innerHTML = `✅ GPS Captured! Lat: ${position.coords.latitude.toFixed(4)}, Long: ${position.coords.longitude.toFixed(4)}`;
                 },
-                body: JSON.stringify(payload)
-            })
-            .then(() => {
-                console.log('Request sent successfully!');
-                showStatus("School profile saved successfully! The system has calculated all ratios automatically.", false);
-                // Optional: Clear the form
-                // document.getElementById('schoolForm').reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                showStatus("Error saving: " + error.message, true);
+                (error) => {
+                    statusDiv.className = 'result error';
+                    statusDiv.innerHTML = `❌ GPS Error: ${error.message}. Please enable location services.`;
+                },
+                { enableHighAccuracy: true, timeout: 10000 }
+            );
+        }
+
+        async function saveSchoolGPS() {
+            const schoolData = {
+                admin_id: ADMIN_ID,
+                school_id: document.getElementById('regSchoolId').value,
+                school_name: document.getElementById('regSchoolName').value,
+                latitude: parseFloat(document.getElementById('regLat').value),
+                longitude: parseFloat(document.getElementById('regLong').value)
+            };
+
+            if (!schoolData.school_id || !schoolData.latitude) {
+                alert('Please enter School ID and capture GPS!');
+                return;
+            }
+
+            const resultDiv = document.getElementById('regResult');
+            resultDiv.innerHTML = '<p>⏳ Saving school...</p>';
+
+            try {
+                const response = await fetch(REGISTER_SCHOOL_GPS_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(schoolData)
+                });
+                const result = await response.json();
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `<strong>✅ Success!</strong> ${schoolData.school_name} registered with GPS.`;
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.innerHTML = `<strong>❌ Error:</strong> ${result.error}`;
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `<strong>🔌 Error:</strong> ${error.message}`;
+            }
+        }
+
+        async function verifyAttendance(action) {
+            const div = document.getElementById("attendanceResult");
+
+            div.style.display = "block";
+            div.className = "result loading";
+            div.innerHTML = "Getting GPS...";
+
+            if (!navigator.geolocation) {
+                div.className = "result error";
+                div.innerHTML = "Browser does not support GPS.";
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                try {
+                    div.innerHTML = "Verifying location...";
+
+                    console.log("Sending request:", {
+                        student_id: currentStudentId,
+                        action: action,
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    });
+
+                    const response = await fetch(
+                        VERIFY_ATTENDANCE_URL,
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                student_id: currentStudentId,
+                                action: action,
+                                latitude: position.coords.latitude,
+                                longitude: position.coords.longitude,
+                                timestamp: new Date().toISOString()
+                            })
+                        }
+                    );
+
+                    const text = await response.text();
+                    console.log("Server Response:", text);
+
+                    const data = JSON.parse(text);
+
+                    if (response.ok) {
+                        if (data.verified) {
+                            div.className = "result success";
+                            div.innerHTML = `✅ VERIFIED<br>Distance: ${data.distance} meters`;
+                        } else {
+                            div.className = "result error";
+                            div.innerHTML = `❌ Not at assigned school.<br>Distance: ${data.distance} meters`;
+                        }
+                    } else {
+                        div.className = "result error";
+                        div.innerHTML = data.error;
+                    }
+                } catch (err) {
+                    console.error(err);
+                    div.className = "result error";
+                    div.innerHTML = "Connection Error: " + err.message + "<br>Check console (F12) for details.";
+                }
+            },
+            (err) => {
+                div.className = "result error";
+                div.innerHTML = err.message;
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 15000,
+                maximumAge: 0
             });
+        }
+
+        async function captureAttendancePhoto() {
+            const resultDiv = document.getElementById('photoResult');
+            const video = document.getElementById('camera');
+            const canvas = document.getElementById('canvas');
+            const photoBtn = document.getElementById('photoBtn');
+            
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const currentMinutes = hour * 60 + minute;
+            const startMinutes = 10 * 60 + 30;  // 10:30 AM
+            const endMinutes = 12 * 60;          // 12:00 PM
+            
+            if (currentMinutes < startMinutes || currentMinutes > endMinutes) {
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `<strong>⚠️ Wrong Time!</strong> Photo capture only allowed between 10:30 AM and 12:00 PM.<br>Current time: ${hour}:${minute.toString().padStart(2, '0')}`;
+                return;
+            }
+
+            photoBtn.disabled = true;
+            photoBtn.textContent = '📷 Initializing camera...';
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result loading';
+            resultDiv.innerHTML = '<p>📷 Initializing camera...</p>';
+
+            try {
+                const stream = await Promise.race([
+                    navigator.mediaDevices.getUserMedia({ 
+                        video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } } 
+                    }),
+                    new Promise((_, reject) => setTimeout(() => reject(new Error('Camera access timeout')), 10000))
+                ]);
+                
+                video.style.display = 'block';
+                video.srcObject = stream;
+                
+                await new Promise((resolve) => {
+                    video.onloadedmetadata = () => { video.play(); resolve(); };
+                });
+                
+                photoBtn.textContent = 'Taking photo in 3 seconds...';
+                resultDiv.innerHTML = '<p>📸 Position yourself and smile! Photo will be taken in 3 seconds...</p>';
+
+                for (let i = 3; i > 0; i--) {
+                    resultDiv.innerHTML += `<p>${i}...</p>`;
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                }
+
+                const context = canvas.getContext('2d');
+                canvas.width = video.videoWidth || 640;
+                canvas.height = video.videoHeight || 480;
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const photoData = canvas.toDataURL('image/jpeg', 0.8);
+                
+                stream.getTracks().forEach(track => track.stop());
+                video.style.display = 'none';
+                
+                resultDiv.className = 'result loading';
+                resultDiv.innerHTML = '<p>⏳ Uploading photo... Please wait...</p>';
+                
+                const uploadPromise = fetch(CAPTURE_ATTENDANCE_PHOTO_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        student_id: currentStudentId,
+                        photo_data: photoData,
+                        week: parseInt(document.getElementById('weekNumber').value),
+                        day: parseInt(document.getElementById('dayNumber').value),
+                        timestamp: new Date().toISOString()
+                    })
+                });
+                
+                const timeoutPromise = new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error('Upload timeout - please try again')), 30000)
+                );
+                
+                const response = await Promise.race([uploadPromise, timeoutPromise]);
+                const result = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = `<strong>✅ Photo Captured Successfully!</strong><br>
+                        <p>Your attendance at ${hour}:${minute.toString().padStart(2, '0')} has been verified.</p>
+                        <p style="margin-top:10px; font-size:12px;">Week ${document.getElementById('weekNumber').value}, Day ${document.getElementById('dayNumber').value}</p>`;
+                } else {
+                    throw new Error(result.error || 'Upload failed');
+                }
+                
+            } catch (error) {
+                console.error('Photo capture error:', error);
+                resultDiv.className = 'result error';
+                
+                let errorMessage = '❌ <strong>Camera Error:</strong> ';
+                if (error.name === 'NotAllowedError' || error.message.includes('permission')) {
+                    errorMessage += 'Camera access denied. Please allow camera permissions.';
+                } else if (error.name === 'NotFoundError' || error.message.includes('device')) {
+                    errorMessage += 'No camera found.';
+                } else if (error.message.includes('timeout')) {
+                    errorMessage += error.message;
+                } else {
+                    errorMessage += error.message + '. Please try again.';
+                }
+                
+                resultDiv.innerHTML = errorMessage;
+            } finally {
+                photoBtn.textContent = '📷 Capture Attendance Photo (10:30 AM - 12:00 PM)';
+                photoBtn.disabled = false;
+                if (video.srcObject) {
+                    video.srcObject.getTracks().forEach(track => track.stop());
+                }
+                video.style.display = 'none';
+            }
         }
     </script>
 </body>
