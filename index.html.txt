@@ -81,7 +81,7 @@
 
         <!-- Admin Section -->
         <div class="card no-print" id="adminSection" style="display:none; border: 2px solid #ff9900;">
-            <h2>👑 Administrator Dashboard</h2>
+            <h2>👑 Administrator Dashboard (esayat88 Only)</h2>
             
             <!-- Part 1: QR Code Generator -->
             <h3>📱 Generate Student QR Code</h3>
