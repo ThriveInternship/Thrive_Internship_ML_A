@@ -55,7 +55,7 @@
             <div class="form-row">
                 <div class="form-col">
                     <label>Student ID</label>
-                    <input type="text" id="studentIdInput" placeholder="e.g., esayat88">
+                    <input type="text" id="studentIdInput" placeholder="e.g., Kwame Abu">
                 </div>
                 <div class="form-col">
                     <label>Admin Password (Required for Admin)</label>
@@ -200,7 +200,7 @@
             <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
 
             <!-- Part 4: Register New Coordinator -->
-            <h3>‍🏫 Register New Coordinator</h3>
+            <h3>🏫 Register New Coordinator</h3>
             <p>Create coordinator account to monitor students from a specific college (valid for 1 year)</p>
             <div class="form-row">
                 <div class="form-col">
@@ -396,7 +396,7 @@
 
             resultBox.style.display = 'block';
             resultBox.className = 'result loading';
-            resultBox.innerHTML = '<p>⏳ Checking...</p>';
+            resultBox.innerHTML = '<p> Checking...</p>';
 
             try {
                 const response = await fetch(CHECK_STATUS_URL, {
@@ -434,7 +434,7 @@
                 }
             } catch (error) {
                 resultBox.className = 'result error';
-                resultBox.innerHTML = `<h3>🔌 Error</h3><p>${error.message}</p>`;
+                resultBox.innerHTML = `<h3> Error</h3><p>${error.message}</p>`;
                 document.getElementById('adminSection').style.display = 'none';
             }
         }
@@ -753,7 +753,7 @@
                     document.getElementById('coordCollege').value = '';
                 } else {
                     resultDiv.className = 'result error';
-                    resultDiv.innerHTML = `<strong>❌ Error:</strong> ${result.error || 'Unknown error'}`;
+                    resultDiv.innerHTML = `<strong> Error:</strong> ${result.error || 'Unknown error'}`;
                 }
                 
             } catch (error) {
@@ -804,7 +804,7 @@
             }
 
             const resultDiv = document.getElementById('regResult');
-            resultDiv.innerHTML = '<p>⏳ Saving school...</p>';
+            resultDiv.innerHTML = '<p> Saving school...</p>';
 
             try {
                 const response = await fetch(REGISTER_SCHOOL_GPS_URL, {
