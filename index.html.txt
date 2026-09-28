@@ -79,7 +79,7 @@
             <div id="profileResult" class="result"></div>
         </div>
 
-        <!-- Admin Section -->
+        <!-- Admin Section - NOW FOR esayat88 -->
         <div class="card no-print" id="adminSection" style="display:none; border: 2px solid #ff9900;">
             <h2>👑 Administrator Dashboard (esayat88 Only)</h2>
             
@@ -200,7 +200,7 @@
             <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
 
             <!-- Part 4: Register New Coordinator -->
-            <h3>👨‍🏫 Register New Coordinator</h3>
+            <h3>‍🏫 Register New Coordinator</h3>
             <p>Create coordinator account to monitor students from a specific college (valid for 1 year)</p>
             <div class="form-row">
                 <div class="form-col">
@@ -284,7 +284,7 @@
             </div>
 
             <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107;">
-                <h3 style="margin-top: 0; color: #856404;">📸 11 AM Attendance Photo</h3>
+                <h3 style="margin-top: 0; color: #856404;"> 11 AM Attendance Photo</h3>
                 <p>At 10:30 AM to 12:00 PM, capture a selfie to confirm your presence at school.</p>
                 <button onclick="captureAttendancePhoto()" id="photoBtn" style="background: #ffc107; width: 100%; font-size: 18px; padding: 15px;">
                     📷 Capture Attendance Photo (10:30 AM - 12:00 PM)
@@ -299,7 +299,7 @@
                 <div class="form-col"><label>Day (1-5)</label><input type="number" id="dayNumber" min="1" max="5" value="1"></div>
             </div>
             
-            <h3>📚 Today's Class Observation</h3>
+            <h3> Today's Class Observation</h3>
             <div class="form-row">
                 <div class="form-col">
                     <label>Class Observed</label>
@@ -331,7 +331,7 @@
         <div id="reportDisplay">
             <div class="no-print" style="text-align: right; margin-bottom: 20px;">
                 <button onclick="window.print()" style="background: #232f3e;">🖨️ Print Report</button>
-                <button onclick="downloadReport()" style="background: #28a745;">💾 Download as HTML</button>
+                <button onclick="downloadReport()" style="background: #28a745;"> Download as HTML</button>
                 <button onclick="document.getElementById('reportDisplay').style.display='none'" style="background: #f44336;">Close</button>
             </div>
             <div id="reportContent"></div>
@@ -356,7 +356,7 @@
         const CAPTURE_ATTENDANCE_PHOTO_URL = 'https://6dfe6z75yohubbexchkohxs3ca0cerpc.lambda-url.us-east-1.on.aws/';
         const GET_COORDINATOR_DASHBOARD_URL = 'https://rb2wxcvtgxemegalw7vxqqw5qm0ggzbf.lambda-url.us-east-1.on.aws/';
 
-        // ADMIN ID is set to esayat88
+        // ADMIN ID is NOW set to esayat88
         const ADMIN_ID = 'esayat88';
         const ADMIN_PASSWORD = 'esayat88'; // The only password that grants admin access
         
@@ -416,7 +416,7 @@
                     document.getElementById('srjSection').style.display = 'block';
                     document.getElementById('reportSection').style.display = 'block';
                     
-                    // ADMIN SECURITY CHECK
+                    // ADMIN SECURITY CHECK - esayat88 ONLY
                     if (currentStudentId === ADMIN_ID) {
                         if (password === ADMIN_PASSWORD) {
                             document.getElementById('adminSection').style.display = 'block';
@@ -464,7 +464,7 @@
             const statusDiv = document.getElementById('schoolSaveStatus');
             statusDiv.style.display = 'block';
             statusDiv.className = 'result loading';
-            statusDiv.innerHTML = '<p>⏳ Saving comprehensive profile...</p>';
+            statusDiv.innerHTML = '<p> Saving comprehensive profile...</p>';
 
             const teaching_staff = {
                 male_professional: document.getElementById('ts_male_prof').value,
@@ -547,7 +547,7 @@
                 
                 if (response.ok) {
                     resultBox.className = 'result success';
-                    let html = `<h3>📚 Semester ${semester} | Week ${week}, Day ${day}</h3>`;
+                    let html = `<h3> Semester ${semester} | Week ${week}, Day ${day}</h3>`;
                     html += `<div class="srj-item"><h4>📝 Reflective Questions:</h4>`;
                     if (Array.isArray(data.srj_questions)) {
                         data.srj_questions.forEach((q, i) => {
@@ -621,7 +621,7 @@
             
             statusDiv.style.display = 'block';
             statusDiv.className = 'result loading';
-            statusDiv.innerHTML = '<h3>🤖 Generating your comprehensive report...</h3><p>Please wait...</p>';
+            statusDiv.innerHTML = '<h3> Generating your comprehensive report...</h3><p>Please wait...</p>';
             
             try {
                 const response = await fetch(GENERATE_REPORT_URL, {
@@ -766,7 +766,7 @@
             const statusDiv = document.getElementById('regResult');
             statusDiv.style.display = 'block';
             statusDiv.className = 'result loading';
-            statusDiv.innerHTML = '<p>📡 Acquiring satellite signal...</p>';
+            statusDiv.innerHTML = '<p> Acquiring satellite signal...</p>';
 
             if (!navigator.geolocation) {
                 statusDiv.className = 'result error';
